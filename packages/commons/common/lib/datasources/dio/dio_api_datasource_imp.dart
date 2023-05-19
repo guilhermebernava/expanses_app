@@ -28,12 +28,12 @@ class DioApiDatasourceImp implements ApiDatasource {
         ApiError(
           endpoint: endpoint,
           message: "error in go to endpoint",
-          statusCode: 500,
+          statusCode: 404,
         ),
       );
     }
 
-    if (response!.statusCode != 200) {
+    if (response.statusCode != 200) {
       return Tuple.left(
         ApiError(
           endpoint: endpoint,
@@ -64,7 +64,7 @@ class DioApiDatasourceImp implements ApiDatasource {
         ApiError(
           endpoint: endpoint,
           message: "error in go to endpoint",
-          statusCode: 500,
+          statusCode: 404,
         ),
       );
     }

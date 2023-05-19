@@ -17,6 +17,8 @@ dependencies:
 
   common_dependencies:
     path: ../../commons/common_dependencies
+  common:
+    path: ../../commons/common
 
 dev_dependencies:
   flutter_test:
