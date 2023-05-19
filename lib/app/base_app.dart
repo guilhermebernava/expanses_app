@@ -1,5 +1,6 @@
 import 'package:expanses_app/modules/splash/presenters/pages/spalsh_page.dart';
 import 'package:flutter/material.dart';
+import 'package:login/login.dart';
 import 'package:micro_core/micro_core.dart';
 
 class App extends StatelessWidget with BaseApp {
@@ -14,7 +15,9 @@ class App extends StatelessWidget with BaseApp {
       };
 
   @override
-  List<MicroApp> get microApps => [];
+  List<MicroApp> get microApps => [
+        LoginResolver(),
+      ];
 
   @override
   Widget build(BuildContext context) {

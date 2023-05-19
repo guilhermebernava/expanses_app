@@ -16,6 +16,10 @@ dependencies:
       url: https://github.com/guilhermebernava/micro_core.git
       ref: main
 
+  #micro_apps
+  login:
+    path: packages/micro_apps/login
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
