@@ -17,6 +17,9 @@ dependencies:
       ref: main
     version: ^0.0.2
 
+  common:
+    path: packages/commons/common
+
   #micro_apps
   login:
     path: packages/micro_apps/login

@@ -6,6 +6,8 @@ class LoginResolver implements MicroApp {
   @override
   String get appName => "login";
 
+  //TODO criar validação para entrar no GET_STARTED somente a primeira vez que abrir o app
+  //SE não direcionar para o login caso o USUARIO NN ESTEJA LOGADO
   @override
   Map<String, WidgetBuilderArgs> get routes => {
         "/login": (context, args) => const GetStartedPage(),

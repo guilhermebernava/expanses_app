@@ -106,7 +106,7 @@ packages:
     source: hosted
     version: "1.17.1"
   common:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "packages/commons/common"
       relative: true

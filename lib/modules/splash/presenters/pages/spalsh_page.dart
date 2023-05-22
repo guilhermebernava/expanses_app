@@ -1,4 +1,6 @@
 import 'package:expenzio/modules/splash/presenters/controllers/splash_controller.dart';
+import 'package:expenzio/modules/splash/presenters/widgets/line_animation.dart';
+import 'package:expenzio/modules/splash/presenters/widgets/text_animated.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -31,12 +33,18 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       backgroundColor: const Color(0xff1D1E25),
       body: AnimatedOpacity(
-        opacity: animated ? 1 : 0,
+        opacity: animated ? 1 : 1,
         duration: const Duration(milliseconds: 500),
-        child: Center(
-          child: Image.asset(
-            "assets/images/logo.png",
-          ),
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            LineAnimationWidget(
+              isReverse: true,
+            ),
+            TextAnimated(),
+            LineAnimationWidget(),
+          ],
         ),
       ),
     );
