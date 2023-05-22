@@ -1,4 +1,4 @@
-import 'package:expanses_app/modules/splash/presenters/pages/spalsh_page.dart';
+import 'package:expenzio/modules/splash/presenters/pages/spalsh_page.dart';
 import 'package:flutter/material.dart';
 import 'package:login/login.dart';
 import 'package:micro_core/micro_core.dart';

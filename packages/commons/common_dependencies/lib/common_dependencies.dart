@@ -6,3 +6,4 @@ export 'package:bloc/bloc.dart';
 export 'package:dio/dio.dart';
 export 'package:get_it/get_it.dart';
 export 'package:bloc_test/bloc_test.dart';
+export 'package:lottie/lottie.dart';

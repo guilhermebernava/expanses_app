@@ -2,10 +2,19 @@ import 'dart:async';
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
-//TODO componentizar widget
-
 class CarrouselWidget extends StatefulWidget {
-  const CarrouselWidget({super.key});
+  final List<Widget> children;
+  final double viewportFraction;
+  final double height;
+  final int timeToChangeScreens;
+
+  const CarrouselWidget({
+    super.key,
+    required this.children,
+    this.viewportFraction = 1.0,
+    required this.height,
+    this.timeToChangeScreens = 10,
+  });
 
   @override
   State<CarrouselWidget> createState() => _CarrouselWidgetState();
@@ -14,11 +23,12 @@ class CarrouselWidget extends StatefulWidget {
 class _CarrouselWidgetState extends State<CarrouselWidget> {
   late final PageController pageController;
   int selectedPage = 0;
-  int maxPages = 3;
+  late int maxPages;
   Timer? carrouselTimer;
 
   Timer generateTimer() {
-    return Timer.periodic(const Duration(seconds: 5), (timer) {
+    return Timer.periodic(Duration(seconds: widget.timeToChangeScreens),
+        (timer) {
       if (selectedPage == maxPages) {
         selectedPage = 0;
       }
@@ -34,9 +44,10 @@ class _CarrouselWidgetState extends State<CarrouselWidget> {
   @override
   void initState() {
     super.initState();
+    maxPages = widget.children.length;
     pageController = PageController(
       initialPage: 0,
-      viewportFraction: 0.8,
+      viewportFraction: widget.viewportFraction,
     );
     carrouselTimer = generateTimer();
   }
@@ -50,76 +61,72 @@ class _CarrouselWidgetState extends State<CarrouselWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 200,
-          child: PageView.builder(
-            controller: pageController,
-            onPageChanged: (value) {
-              if (mounted) {
-                setState(() {
-                  selectedPage = value;
-                });
-              }
-            },
-            itemBuilder: (_, __) => AnimatedBuilder(
-              animation: pageController,
-              builder: (_, child) => child!,
-              child: GestureDetector(
-                onPanDown: (details) {
-                  carrouselTimer?.cancel();
-                  carrouselTimer = null;
-                },
-                onPanCancel: () {
-                  carrouselTimer = generateTimer();
-                },
-                child: Container(
-                  margin: const EdgeInsets.only(
-                    left: 8,
-                    right: 8,
-                    top: 36,
-                    bottom: 12,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.purple,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                ),
-              ),
-            ),
-            itemCount: maxPages,
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(
-            maxPages,
-            (index) => GestureDetector(
-              onTap: () {
-                pageController.animateToPage(
-                  index,
-                  duration: const Duration(
-                    milliseconds: 300,
-                  ),
-                  curve: Curves.easeInSine,
-                );
+    return SafeArea(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: widget.height - 100,
+            child: PageView.builder(
+              controller: pageController,
+              onPageChanged: (value) {
+                if (mounted) {
+                  setState(() {
+                    selectedPage = value;
+                  });
+                }
               },
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 7),
-                width: 20,
-                height: 10,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: selectedPage == index
-                      ? AppColors.yellow
-                      : Colors.grey.shade300,
+              itemBuilder: (_, index) => AnimatedBuilder(
+                animation: pageController,
+                builder: (_, child) => child!,
+                child: GestureDetector(
+                  onPanDown: (details) {
+                    carrouselTimer?.cancel();
+                    carrouselTimer = null;
+                  },
+                  onPanCancel: () {
+                    carrouselTimer = generateTimer();
+                  },
+                  child: widget.children[index],
+                ),
+              ),
+              itemCount: maxPages,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30, bottom: 70),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                maxPages,
+                (index) => GestureDetector(
+                  onTap: () {
+                    pageController.animateToPage(
+                      index,
+                      duration: const Duration(
+                        milliseconds: 300,
+                      ),
+                      curve: Curves.easeInSine,
+                    );
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 7),
+                    width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: selectedPage == index
+                          ? AppColors.purple
+                          : Colors.grey.shade300,
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
