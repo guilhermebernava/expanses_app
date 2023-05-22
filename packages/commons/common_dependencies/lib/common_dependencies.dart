@@ -7,3 +7,5 @@ export 'package:dio/dio.dart';
 export 'package:get_it/get_it.dart';
 export 'package:bloc_test/bloc_test.dart';
 export 'package:lottie/lottie.dart';
+export 'package:connectivity_plus/connectivity_plus.dart';
+export 'package:shared_preferences/shared_preferences.dart';

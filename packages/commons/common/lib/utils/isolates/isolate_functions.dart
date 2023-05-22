@@ -1,5 +1,5 @@
 import 'dart:isolate';
-import 'package:common/datasources/utils/isolates/isolate_props.dart';
+import 'package:common/utils/isolates/isolate_props.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 import 'isolate_function_props.dart';
 

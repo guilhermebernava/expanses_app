@@ -1,4 +1,4 @@
-import 'package:common/datasources/dio/dio_api_datasource_imp.dart';
+import 'package:common/datasources/api/dio/dio_api_datasource_imp.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

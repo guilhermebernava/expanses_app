@@ -1,5 +1,5 @@
 import 'package:common/datasources/errors/api_error.dart';
-import 'package:common/datasources/utils/tuple.dart';
+import 'package:common/utils/tuple.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 abstract class ApiDatasource {

@@ -1,8 +1,8 @@
-import 'package:common/datasources/api_datasource.dart';
+import 'package:common/datasources/api/api_datasource.dart';
 import 'package:common/datasources/errors/api_error.dart';
-import 'package:common/datasources/utils/isolates/isolate_function_props.dart';
-import 'package:common/datasources/utils/isolates/isolate_functions.dart';
-import 'package:common/datasources/utils/tuple.dart';
+import 'package:common/utils/isolates/isolate_function_props.dart';
+import 'package:common/utils/isolates/isolate_functions.dart';
+import 'package:common/utils/tuple.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 class DioApiDatasourceImp implements ApiDatasource {
@@ -13,6 +13,15 @@ class DioApiDatasourceImp implements ApiDatasource {
 
   @override
   Future<Tuple<ApiError, Response>> get({required String endpoint}) async {
+    if (await _haveInternet() == false) {
+      return Tuple.left(
+        ApiError(
+          endpoint: endpoint,
+          message: "NO INTERNET",
+          statusCode: 001,
+        ),
+      );
+    }
     final response = await IsolateFunctions.isolateGet(
       IsolateFunctionProps(
         endpoint: Uri.parse(
@@ -49,6 +58,16 @@ class DioApiDatasourceImp implements ApiDatasource {
   @override
   Future<Tuple<ApiError, Response>> post(
       {required String endpoint, required String body}) async {
+    if (await _haveInternet() == false) {
+      return Tuple.left(
+        ApiError(
+          endpoint: endpoint,
+          message: "NO INTERNET",
+          statusCode: 001,
+        ),
+      );
+    }
+
     final response = await IsolateFunctions.isolatePost(
       IsolateFunctionProps(
         endpoint: Uri.parse(
@@ -80,5 +99,10 @@ class DioApiDatasourceImp implements ApiDatasource {
     }
 
     return Tuple.right(response);
+  }
+
+  Future<bool> _haveInternet() async {
+    final connectivityResult = await (Connectivity().checkConnectivity());
+    return connectivityResult != ConnectivityResult.none;
   }
 }
