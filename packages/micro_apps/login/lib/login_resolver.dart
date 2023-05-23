@@ -1,16 +1,17 @@
 import 'package:login/injector.dart';
 import 'package:login/modules/get_started/presenters/pages/get_started_page.dart';
+import 'package:login/modules/login/presenters/pages/login_page.dart';
+import 'package:login/modules/splash/presenters/pages/spalsh_page.dart';
 import 'package:micro_core/micro_core.dart';
 
 class LoginResolver implements MicroApp {
   @override
   String get appName => "login";
-
-  //TODO criar validação para entrar no GET_STARTED somente a primeira vez que abrir o app
-  //SE não direcionar para o login caso o USUARIO NN ESTEJA LOGADO
+//TODO derecionar o usuario para HOME quando já estiver logado
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-        "/login": (context, args) => const GetStartedPage(),
+        "/splash": (context, args) => const SplashPage(),
+        "/login": (context, args) => const LoginPage(),
         "/get-started": (context, args) => const GetStartedPage(),
       };
 
