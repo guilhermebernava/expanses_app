@@ -8,12 +8,14 @@ class AppFonts {
     Color color = AppColors.white,
     FontWeight fontWeight = FontWeight.normal,
     double letterSpacing = 0,
+    List<Shadow>? shadows,
   }) {
     return GoogleFonts.montserrat(
       fontSize: fontSize,
       color: color,
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
+      shadows: shadows,
     );
   }
 

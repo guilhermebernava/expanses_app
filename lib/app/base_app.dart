@@ -1,7 +1,9 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:login/login.dart';
 import 'package:micro_core/micro_core.dart';
+import 'package:splash/splash.dart';
 
 class App extends StatelessWidget with BaseApp {
   App({super.key}) {
@@ -16,6 +18,7 @@ class App extends StatelessWidget with BaseApp {
   @override
   List<MicroApp> get microApps => [
         LoginResolver(),
+        SplashResolver(),
       ];
 
   @override
@@ -27,6 +30,13 @@ class App extends StatelessWidget with BaseApp {
       initialRoute: "/splash",
       onGenerateRoute: super.generateRoute,
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.green,
+            statusBarIconBrightness: Brightness.dark,
+            statusBarBrightness: Brightness.dark,
+          ),
+        ),
         colorScheme: ColorScheme.fromSeed(
           background: AppColors.darkBlue,
           seedColor: AppColors.purple,

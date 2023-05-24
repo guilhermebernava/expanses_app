@@ -22,6 +22,8 @@ dependencies:
   #micro_apps
   login:
     path: packages/micro_apps/login
+  splash:
+    path: packages/micro_apps/splash
 
 dev_dependencies:
   flutter_test:
@@ -50,5 +52,5 @@ flutter_launcher_icons:
 flutter:
   uses-material-design: true
   assets:
-    - packages/micro_apps/login/assets/
+    - packages/micro_apps/splash/assets/
     - assets/images/
