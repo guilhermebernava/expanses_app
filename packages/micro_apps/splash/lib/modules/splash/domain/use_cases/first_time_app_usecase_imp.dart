@@ -1,6 +1,7 @@
 import 'package:common/common.dart';
 import 'package:common/datasources/databases/app_database/app_repository.dart';
-import 'package:login/modules/splash/domain/use_cases/first_time_app_usecase.dart';
+
+import 'first_time_app_usecase.dart';
 
 class FirstTimeAppUsecaseImp implements FirstTimeAppUseCase {
   final AppRepository _appRepository;

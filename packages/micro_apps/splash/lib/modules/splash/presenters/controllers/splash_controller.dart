@@ -1,6 +1,7 @@
 import 'package:common/common.dart';
-import 'package:login/modules/splash/domain/use_cases/first_time_app_usecase.dart';
 import 'package:flutter/material.dart';
+
+import '../../domain/use_cases/first_time_app_usecase.dart';
 
 class SplashController {
   final FirstTimeAppUseCase firstTimeAppUseCase;

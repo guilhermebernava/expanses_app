@@ -1,10 +1,11 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:login/modules/get_started/presenters/widgets/lottie_box.dart';
 
-class InvestimentPage extends StatelessWidget {
+import '../widgets/lottie_box.dart';
+
+class KeepPage extends StatelessWidget {
   final Size size;
-  const InvestimentPage({
+  const KeepPage({
     super.key,
     required this.size,
   });
@@ -19,12 +20,12 @@ class InvestimentPage extends StatelessWidget {
         children: [
           LottieBox(
             size: size,
-            asset: 'packages/micro_apps/login/assets/investiment.json',
+            asset: 'packages/micro_apps/splash/assets/keep.json',
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15),
             child: Text(
-              "See How Much You Will Spend",
+              "See How Can You Organize Your Money",
               textAlign: TextAlign.center,
               style: AppFonts.montserrat(
                 fontSize: 24,
@@ -34,7 +35,7 @@ class InvestimentPage extends StatelessWidget {
             ),
           ),
           Text(
-            "You can deduce how much you going to spend every month",
+            "You can organize your life costs, create reminders to save money",
             textAlign: TextAlign.center,
             style: AppFonts.montserrat(
               fontSize: 16,

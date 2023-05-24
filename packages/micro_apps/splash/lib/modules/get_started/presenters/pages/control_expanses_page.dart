@@ -1,6 +1,6 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:login/modules/get_started/presenters/widgets/lottie_box.dart';
+import 'package:splash/modules/get_started/presenters/widgets/lottie_box.dart';
 
 class ControlExpansesPage extends StatelessWidget {
   final Size size;
@@ -18,7 +18,7 @@ class ControlExpansesPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           LottieBox(
-            asset: 'packages/micro_apps/login/assets/money_animation.json',
+            asset: 'packages/micro_apps/splash/assets/money_animation.json',
             size: size,
           ),
           Padding(

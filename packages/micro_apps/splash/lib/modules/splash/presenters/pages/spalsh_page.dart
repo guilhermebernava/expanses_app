@@ -1,9 +1,10 @@
 import 'package:common/common.dart';
 import 'package:common_dependencies/common_dependencies.dart';
-import 'package:login/modules/splash/presenters/controllers/splash_controller.dart';
-import 'package:login/modules/splash/presenters/widgets/line_animation.dart';
-import 'package:login/modules/splash/presenters/widgets/text_animated.dart';
 import 'package:flutter/material.dart';
+
+import '../controllers/splash_controller.dart';
+import '../widgets/line_animation.dart';
+import '../widgets/text_animated.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

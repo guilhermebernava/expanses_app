@@ -1,10 +1,10 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:login/modules/get_started/presenters/pages/control_expanses_page.dart';
-import 'package:login/modules/get_started/presenters/pages/investiment_page.dart';
-import 'package:login/modules/get_started/presenters/pages/keep_page.dart';
-import 'package:login/modules/get_started/presenters/widgets/carrousel_widget.dart';
-import 'package:login/modules/get_started/presenters/widgets/get_started_button.dart';
+import 'package:splash/modules/get_started/presenters/pages/control_expanses_page.dart';
+import 'package:splash/modules/get_started/presenters/pages/investiment_page.dart';
+import 'package:splash/modules/get_started/presenters/pages/keep_page.dart';
+import 'package:splash/modules/get_started/presenters/widgets/carrousel_widget.dart';
+import 'package:splash/modules/get_started/presenters/widgets/get_started_button.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
