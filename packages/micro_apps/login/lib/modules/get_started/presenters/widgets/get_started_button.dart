@@ -11,12 +11,14 @@ class GetStartedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushReplacementNamed(context, "/login");
+      },
       child: Container(
         width: size.width * 0.8,
         decoration: BoxDecoration(
           color: AppColors.purple,
-          borderRadius: BorderRadius.circular(100),
+          borderRadius: BorderRadius.circular(5),
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),

@@ -67,7 +67,7 @@ class _CarrouselWidgetState extends State<CarrouselWidget> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: widget.height - 100,
+            height: widget.height * 0.8,
             child: PageView.builder(
               controller: pageController,
               onPageChanged: (value) {
@@ -95,7 +95,7 @@ class _CarrouselWidgetState extends State<CarrouselWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 30, bottom: 70),
+            padding: const EdgeInsets.only(top: 30, bottom: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
@@ -112,8 +112,8 @@ class _CarrouselWidgetState extends State<CarrouselWidget> {
                   },
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 7),
-                    width: 10,
-                    height: 10,
+                    width: selectedPage == index ? 10 : 6,
+                    height: selectedPage == index ? 10 : 6,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       color: selectedPage == index

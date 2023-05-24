@@ -4,7 +4,7 @@ class AppColors {
   static const darkBlue = Color(0xff1d1e25);
   static const black = Color(0xff000000);
   static const white = Color(0xffe5e5e5);
-  static const grey = Color(0xfff7f7f7);
+  static const grey = Color.fromARGB(255, 110, 110, 110);
 
   static const purple = Color(0xff5852F2);
   static const purple2 = Color(0xff716DF2);

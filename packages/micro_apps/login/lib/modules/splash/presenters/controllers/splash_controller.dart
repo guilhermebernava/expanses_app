@@ -1,4 +1,4 @@
-import 'package:common/presenters/pages/error_page.dart';
+import 'package:common/common.dart';
 import 'package:login/modules/splash/domain/use_cases/first_time_app_usecase.dart';
 import 'package:flutter/material.dart';
 
@@ -14,10 +14,8 @@ class SplashController {
     Future.delayed(const Duration(milliseconds: 2000)).then((value) {
       firstTimeAppUseCase.isFirstTime().then((value) {
         if (value.isLeft()) {
-          return Navigator.of(context).pushNamed(
-            ErrorPage.route,
-            arguments: value.left,
-          );
+          ShowErrorServices.showError(context, value.left);
+          return null;
         }
 
         //TODO adicionar validação de usuário logado

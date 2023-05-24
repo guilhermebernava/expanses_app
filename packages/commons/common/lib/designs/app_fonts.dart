@@ -16,4 +16,18 @@ class AppFonts {
       letterSpacing: letterSpacing,
     );
   }
+
+  static TextStyle sourceSansPro({
+    double fontSize = 18,
+    Color color = AppColors.white,
+    FontWeight fontWeight = FontWeight.normal,
+    double letterSpacing = 0,
+  }) {
+    return GoogleFonts.sourceSansPro(
+      fontSize: fontSize,
+      color: color,
+      fontWeight: fontWeight,
+      letterSpacing: letterSpacing,
+    );
+  }
 }

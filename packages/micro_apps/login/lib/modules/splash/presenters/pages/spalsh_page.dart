@@ -36,22 +36,28 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
-      body: AnimatedOpacity(
-        opacity: animated ? 1 : 1,
-        duration: const Duration(milliseconds: 500),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            LineAnimationWidget(
-              isReverse: true,
+      body: AbstractBackground(
+        size: size,
+        opacity: 0.05,
+        children: [
+          AnimatedOpacity(
+            opacity: animated ? 1 : 1,
+            duration: const Duration(milliseconds: 500),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                LineAnimationWidget(isReverse: true),
+                TextAnimated(),
+                LineAnimationWidget(),
+              ],
             ),
-            TextAnimated(),
-            LineAnimationWidget(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

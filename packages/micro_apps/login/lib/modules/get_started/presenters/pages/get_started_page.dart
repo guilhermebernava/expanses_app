@@ -14,33 +14,39 @@ class GetStartedPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 20,
-        ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CarrouselWidget(
-                height: size.height * 0.77,
+      body: AbstractBackground(
+        opacity: 0.03,
+        size: size,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 20,
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ControlExpansesPage(
-                    size: size,
+                  CarrouselWidget(
+                    height: size.height * 0.8,
+                    children: [
+                      ControlExpansesPage(
+                        size: size,
+                      ),
+                      KeepPage(
+                        size: size,
+                      ),
+                      InvestimentPage(
+                        size: size,
+                      ),
+                    ],
                   ),
-                  KeepPage(
-                    size: size,
-                  ),
-                  InvestimentPage(
-                    size: size,
-                  ),
+                  GetStartedButton(size: size),
                 ],
               ),
-              GetStartedButton(size: size),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
