@@ -1,5 +1,6 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:splash/design/app_assets.dart';
 
 import '../widgets/lottie_box.dart';
 
@@ -20,7 +21,7 @@ class KeepPage extends StatelessWidget {
         children: [
           LottieBox(
             size: size,
-            asset: 'packages/micro_apps/splash/assets/keep.json',
+            asset: AppAssets.keepLottie,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15),

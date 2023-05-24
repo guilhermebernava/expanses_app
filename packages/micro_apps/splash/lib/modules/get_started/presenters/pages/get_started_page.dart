@@ -4,7 +4,7 @@ import 'package:splash/modules/get_started/presenters/pages/control_expanses_pag
 import 'package:splash/modules/get_started/presenters/pages/investiment_page.dart';
 import 'package:splash/modules/get_started/presenters/pages/keep_page.dart';
 import 'package:splash/modules/get_started/presenters/widgets/carrousel_widget.dart';
-import 'package:splash/modules/get_started/presenters/widgets/get_started_button.dart';
+import 'package:splash/modules/get_started/services/show_modal_bottom_sheet_services.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -41,7 +41,15 @@ class GetStartedPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  GetStartedButton(size: size),
+                  CommonButton(
+                    width: size.width * 0.8,
+                    isReverseColor: true,
+                    onTap: () => ShowModalBottomSheetServices.showGetStarted(
+                      context,
+                      size,
+                    ),
+                    text: "Get Started",
+                  ),
                 ],
               ),
             ),

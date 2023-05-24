@@ -23,7 +23,7 @@ class SplashController {
         if (value.right) {
           return Navigator.of(context).pushNamed(_getStarted);
         }
-        return Navigator.of(context).pushNamed(_login);
+        return Navigator.of(context).pushNamed(_getStarted);
       });
     });
   }

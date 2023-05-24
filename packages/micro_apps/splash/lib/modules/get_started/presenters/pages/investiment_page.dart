@@ -1,5 +1,6 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:splash/design/app_assets.dart';
 
 import '../widgets/lottie_box.dart';
 
@@ -20,7 +21,7 @@ class InvestimentPage extends StatelessWidget {
         children: [
           LottieBox(
             size: size,
-            asset: 'packages/micro_apps/splash/assets/investiment.json',
+            asset: AppAssets.investimentLottie,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15),
