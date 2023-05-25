@@ -53,8 +53,8 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                 CommonButton(
                   width: size.width,
                   onTap: () {
-                    //TODO adicionar tela para SIGN UP
                     Navigator.pop(context);
+                    Navigator.pushNamed(context, "/sign-up");
                   },
                   text: "Sign Up",
                 ),

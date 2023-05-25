@@ -1,5 +1,6 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CommonButton extends StatelessWidget {
   final double width;
@@ -20,7 +21,10 @@ class CommonButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        HapticFeedback.lightImpact();
+        onTap();
+      },
       child: Container(
         width: width,
         padding: const EdgeInsets.all(5),
