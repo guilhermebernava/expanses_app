@@ -23,7 +23,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
           opacity: 0.7,
         ),
       ),
-      height: size.height * 0.5955,
+      height: size.height * 0.65,
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +45,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             color: AppColors.darkBlue,
             width: double.infinity,
-            height: size.height * 0.51,
+            height: size.height * 0.564,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [

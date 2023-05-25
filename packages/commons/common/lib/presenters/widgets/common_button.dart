@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CommonButton extends StatelessWidget {
-  final double width;
+  final double? width;
   final VoidCallback onTap;
   final String text;
   final bool isReverseColor;
@@ -11,7 +11,7 @@ class CommonButton extends StatelessWidget {
 
   const CommonButton({
     super.key,
-    required this.width,
+    this.width,
     required this.onTap,
     this.text = "",
     this.isReverseColor = false,
@@ -29,14 +29,17 @@ class CommonButton extends StatelessWidget {
         width: width,
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow()
+          ],
           border: isReverseColor
               ? Border.all(width: 2.5, color: AppColors.primary)
               : null,
           color: isReverseColor ? Colors.transparent : AppColors.primary,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(100),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
           child: child ??
               Text(
                 text,
