@@ -30,7 +30,7 @@ class SocialLoginButton extends StatelessWidget {
               spreadRadius: 1,
             )
           ],
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Image.asset(
           image,

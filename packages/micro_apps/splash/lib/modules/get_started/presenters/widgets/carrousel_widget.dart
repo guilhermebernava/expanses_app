@@ -117,7 +117,7 @@ class _CarrouselWidgetState extends State<CarrouselWidget> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       color: selectedPage == index
-                          ? AppColors.purple
+                          ? AppColors.primary
                           : Colors.grey.shade300,
                     ),
                   ),

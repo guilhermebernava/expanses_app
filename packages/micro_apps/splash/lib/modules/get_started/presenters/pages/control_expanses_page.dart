@@ -1,6 +1,5 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:splash/design/app_assets.dart';
 import 'package:splash/modules/get_started/presenters/widgets/lottie_box.dart';
 
 class ControlExpansesPage extends StatelessWidget {

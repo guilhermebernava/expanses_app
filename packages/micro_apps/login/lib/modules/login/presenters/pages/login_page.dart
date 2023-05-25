@@ -9,61 +9,48 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    //TODO terminar de desenvolver pagina de login
 
     return AnnotatedRegion(
       value: SystemUiOverlayStyle.light,
-      child: Scaffold(
-        //TODO terminar de desenvolver pagina de login
-        body: AbstractBackground(
-          opacity: 0.05,
-          size: size,
-          children: [
-            SizedBox(
-              width: size.width,
-              height: size.height * 0.9,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+      child: CommonPageAnimated(
+        size: size,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        body: Form(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 30),
+                child: LogoWidget(),
+              ),
+              Column(
                 children: [
-                  const TransparentAppBarWidget(),
-                  SizedBox(
-                    height: size.height * 0.1,
+                  const LoginInput(
+                    label: "E-mail",
+                    hintLabel: "yourname@example.com",
+                    textInputType: TextInputType.emailAddress,
                   ),
-                  Form(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        children: [
-                          const Column(
-                            children: [
-                              LoginInput(
-                                label: "E-mail",
-                                hintLabel: "yourname@example.com",
-                                textInputType: TextInputType.emailAddress,
-                              ),
-                              LoginInput(
-                                label: "Password",
-                                isPassword: true,
-                                hintLabel: "yourpassword",
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 80,
-                          ),
-                          CommonButton(
-                            width: size.width,
-                            onTap: () {},
-                            text: "SIGN IN",
-                          )
-                        ],
-                      ),
-                    ),
+                  LoginInput(
+                    label: "Password",
+                    isPassword: true,
+                    hintLabel: "yourpassword",
+                    counterLabel: "forgot your password ?",
+                    onCounterTap: () {
+                      //TODO implementar recuperar senha
+                    },
                   ),
                 ],
               ),
-            ),
-          ],
+              const SizedBox(height: 30),
+              CommonButton(
+                width: size.width,
+                onTap: () {},
+                text: "SIGN IN",
+              )
+            ],
+          ),
         ),
       ),
     );

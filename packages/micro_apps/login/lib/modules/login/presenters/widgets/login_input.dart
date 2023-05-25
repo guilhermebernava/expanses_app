@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 
 class LoginInput extends StatefulWidget {
   final String label;
+  final String? counterLabel;
   final String? hintLabel;
   final bool isPassword;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
+  final VoidCallback? onCounterTap;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
 
   const LoginInput({
     super.key,
     required this.label,
+    this.counterLabel,
     this.hintLabel,
     this.isPassword = false,
+    this.onCounterTap,
     this.onChanged,
     this.validator,
     this.textInputAction = TextInputAction.next,
@@ -27,6 +31,7 @@ class LoginInput extends StatefulWidget {
 
 class _LoginInputState extends State<LoginInput> {
   late bool isHiden;
+  final double _borderRadius = 15;
 
   @override
   void initState() {
@@ -37,12 +42,12 @@ class _LoginInputState extends State<LoginInput> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 8),
+            padding: const EdgeInsets.only(left: 8, bottom: 10),
             child: Text(
               widget.label,
               style: AppFonts.sourceSansPro(
@@ -54,15 +59,24 @@ class _LoginInputState extends State<LoginInput> {
           TextFormField(
             validator: widget.validator,
             onChanged: widget.onChanged,
-            style: AppFonts.montserrat(
-              letterSpacing: isHiden ? 5 : 0,
-            ),
+            style: AppFonts.montserrat(letterSpacing: isHiden ? 5 : 0),
             textInputAction: widget.textInputAction,
             keyboardAppearance: Brightness.dark,
             keyboardType: widget.textInputType,
             obscuringCharacter: "*",
             obscureText: widget.isPassword ? isHiden : false,
             decoration: InputDecoration(
+              filled: true,
+              fillColor: AppColors.black,
+              counter: widget.counterLabel != null
+                  ? GestureDetector(
+                      onTap: widget.onCounterTap,
+                      child: Text(
+                        widget.counterLabel!,
+                        style: AppFonts.sourceSansPro(fontSize: 15),
+                      ),
+                    )
+                  : null,
               errorStyle: AppFonts.montserrat(
                 color: Colors.red,
                 fontSize: 14,
@@ -84,39 +98,23 @@ class _LoginInputState extends State<LoginInput> {
                       ),
                     )
                   : null,
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              contentPadding: const EdgeInsets.all(20),
               hintText: widget.hintLabel,
-              hintStyle: AppFonts.montserrat(
-                color: AppColors.grey,
-              ),
-              border: UnderlineInputBorder(
+              hintStyle: AppFonts.montserrat(color: AppColors.grey),
+              focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   width: 2,
-                  color: AppColors.white,
+                  color: AppColors.primary,
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(_borderRadius),
               ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: const BorderSide(
-                  width: 2,
-                  color: AppColors.purple,
-                ),
-                borderRadius: BorderRadius.circular(10),
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(width: 2, color: AppColors.black),
+                borderRadius: BorderRadius.circular(_borderRadius),
               ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  width: 2,
-                  color: Colors.grey.shade300,
-                ),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              errorBorder: UnderlineInputBorder(
-                borderSide: const BorderSide(
-                  width: 2,
-                  color: Colors.red,
-                ),
-                borderRadius: BorderRadius.circular(10),
+              errorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(width: 2, color: Colors.red),
+                borderRadius: BorderRadius.circular(_borderRadius),
               ),
             ),
           ),

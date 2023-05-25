@@ -1,6 +1,5 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:splash/design/app_assets.dart';
 import 'package:splash/modules/get_started/presenters/widgets/modal_bottom_sheet/or_widget.dart';
 
 import '../social_login_button.dart';
@@ -24,10 +23,10 @@ class GetStartedModalBottomSheet extends StatelessWidget {
           opacity: 0.05,
         ),
       ),
-      height: size.height * 0.58,
+      height: size.height * 0.6,
       width: double.infinity,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 25),
@@ -43,18 +42,16 @@ class GetStartedModalBottomSheet extends StatelessWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 20,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             color: AppColors.darkBlue,
             width: double.infinity,
-            height: size.height * 0.493,
+            height: size.height * 0.51,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                const SizedBox(height: 30),
                 CommonButton(
-                  width: size.width * 0.8,
+                  width: size.width,
                   onTap: () {
                     //TODO adicionar tela para SIGN UP
                     Navigator.pop(context);
@@ -64,7 +61,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: CommonButton(
-                    width: size.width * 0.8,
+                    width: size.width,
                     onTap: () {
                       Navigator.pop(context);
                       Navigator.pushNamed(context, "/login");
