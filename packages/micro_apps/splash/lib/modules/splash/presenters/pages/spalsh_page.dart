@@ -43,7 +43,8 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: AppColors.darkBlue,
       body: AbstractBackground(
         size: size,
-        opacity: 0.05,
+        image: AppAssets.backgroundPrimary,
+        opacity: 0.2,
         children: [
           AnimatedOpacity(
             opacity: animated ? 1 : 1,

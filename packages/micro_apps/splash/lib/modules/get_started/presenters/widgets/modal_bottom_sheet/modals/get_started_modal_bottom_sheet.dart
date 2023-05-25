@@ -17,13 +17,13 @@ class GetStartedModalBottomSheet extends StatelessWidget {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            AppAssets.background,
+            AppAssets.backgroundBlue,
           ),
           fit: BoxFit.fitHeight,
-          opacity: 0.05,
+          opacity: 0.7,
         ),
       ),
-      height: size.height * 0.6,
+      height: size.height * 0.5955,
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

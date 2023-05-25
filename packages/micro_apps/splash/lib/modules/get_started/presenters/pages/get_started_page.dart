@@ -6,23 +6,8 @@ import 'package:splash/modules/get_started/presenters/pages/keep_page.dart';
 import 'package:splash/modules/get_started/presenters/widgets/carrousel_widget.dart';
 import 'package:splash/modules/get_started/services/show_modal_bottom_sheet_services.dart';
 
-class GetStartedPage extends StatefulWidget {
+class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
-
-  @override
-  State<GetStartedPage> createState() => _GetStartedPageState();
-}
-
-class _GetStartedPageState extends State<GetStartedPage>
-    with TickerProviderStateMixin {
-  late AnimationController controller;
-  late Animation<Offset> animation;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +15,8 @@ class _GetStartedPageState extends State<GetStartedPage>
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
       body: AbstractBackground(
-        opacity: 0.03,
+        image: AppAssets.backgroundGrey,
+        opacity: 0.08,
         size: size,
         children: [
           Padding(
