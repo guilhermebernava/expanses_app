@@ -26,7 +26,8 @@ class CommonPageStructure extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: AbstractBackground(
-        opacity: 0.32,
+        image: AppAssets.backgroundBlue,
+        opacity: 0.7,
         size: size,
         children: [
           SizedBox(

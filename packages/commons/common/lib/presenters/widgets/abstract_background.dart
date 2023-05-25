@@ -1,15 +1,18 @@
+import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
 class AbstractBackground extends StatelessWidget {
   final Size size;
   final List<Widget> children;
   final double opacity;
+  final String image;
 
   const AbstractBackground({
     super.key,
     required this.children,
     required this.size,
     this.opacity = 0.1,
+    this.image = AppAssets.background,
   });
 
   @override
@@ -19,9 +22,7 @@ class AbstractBackground extends StatelessWidget {
       height: size.height,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: const AssetImage(
-            "assets/images/texture.png",
-          ),
+          image: AssetImage(image),
           fit: BoxFit.cover,
           opacity: opacity,
         ),

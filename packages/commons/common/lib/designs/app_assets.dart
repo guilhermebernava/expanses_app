@@ -8,6 +8,9 @@ class AppAssets {
   static const moneyLottie =
       "packages/micro_apps/splash/assets/money_animation.json";
 
-  static const background = "assets/images/texture.png";
+  static const background = "assets/images/white_texture.png";
+  static const backgroundPrimary = "assets/images/primary_texture.png";
+  static const backgroundBlue = "assets/images/blue_texture.png";
+  static const backgroundGrey = "assets/images/grey_texture.png";
   static const icon = "assets/images/icon.png";
 }
