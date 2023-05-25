@@ -26,11 +26,9 @@ class AbstractBackground extends StatelessWidget {
           opacity: opacity,
         ),
       ),
-      child: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: children,
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: children,
       ),
     );
   }

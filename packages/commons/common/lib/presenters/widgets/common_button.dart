@@ -23,15 +23,13 @@ class CommonButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: width,
+        padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           border: isReverseColor
-              ? Border.all(
-                  width: 2,
-                  color: AppColors.purple,
-                )
+              ? Border.all(width: 2.5, color: AppColors.primary)
               : null,
-          color: isReverseColor ? Colors.transparent : AppColors.purple,
-          borderRadius: BorderRadius.circular(5),
+          color: isReverseColor ? Colors.transparent : AppColors.primary,
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),

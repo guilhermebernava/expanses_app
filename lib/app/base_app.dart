@@ -39,7 +39,7 @@ class App extends StatelessWidget with BaseApp {
         ),
         colorScheme: ColorScheme.fromSeed(
           background: AppColors.darkBlue,
-          seedColor: AppColors.purple,
+          seedColor: AppColors.primary,
         ),
         useMaterial3: true,
       ),

@@ -17,7 +17,7 @@ class TransparentAppBarWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(left: 10, top: 30, bottom: 15),
           child: GestureDetector(
             onTap: onTap ??
                 () {
