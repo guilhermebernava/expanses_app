@@ -8,6 +8,7 @@ export 'designs/app_fonts.dart';
 export 'injector.dart';
 export 'services/show_error_services.dart';
 export 'designs/app_assets.dart';
+export 'envoriment_variables.dart';
 
 //WIDGETS
 export 'presenters/widgets/abstract_background.dart';

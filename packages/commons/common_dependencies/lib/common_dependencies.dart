@@ -9,3 +9,5 @@ export 'package:bloc_test/bloc_test.dart';
 export 'package:lottie/lottie.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
 export 'package:shared_preferences/shared_preferences.dart';
+export 'package:firebase_core/firebase_core.dart';
+export 'package:flutter_dotenv/flutter_dotenv.dart';
