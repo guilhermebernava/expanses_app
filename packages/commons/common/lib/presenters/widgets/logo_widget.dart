@@ -11,7 +11,10 @@ class LogoWidget extends StatelessWidget {
         Center(
           child: Padding(
             padding: const EdgeInsets.only(left: 60, right: 120),
-            child: Container(height: 2.5, color: AppColors.white),
+            child: Container(
+              height: 2.5,
+              color: AppColors.primary,
+            ),
           ),
         ),
         Text(
@@ -26,7 +29,10 @@ class LogoWidget extends StatelessWidget {
         Center(
           child: Padding(
             padding: const EdgeInsets.only(left: 120, right: 60),
-            child: Container(height: 2.5, color: AppColors.white),
+            child: Container(
+              height: 2.5,
+              color: AppColors.primary,
+            ),
           ),
         ),
       ],

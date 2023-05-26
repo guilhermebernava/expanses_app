@@ -9,7 +9,10 @@ class ShowModalBottomSheetServices {
       elevation: 0,
       isScrollControlled: true,
       useSafeArea: true,
-      backgroundColor: AppColors.darkBlue,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      backgroundColor: AppColors.mediumBlue,
       builder: (ctx) => GetStartedModalBottomSheet(size: size),
     );
   }

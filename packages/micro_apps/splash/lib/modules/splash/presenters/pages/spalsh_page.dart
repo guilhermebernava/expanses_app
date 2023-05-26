@@ -40,26 +40,19 @@ class _SplashPageState extends State<SplashPage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: AppColors.darkBlue,
-      body: AbstractBackground(
-        size: size,
-        image: AppAssets.backgroundPrimary,
-        opacity: 0.2,
-        children: [
-          AnimatedOpacity(
-            opacity: animated ? 1 : 1,
-            duration: const Duration(milliseconds: 500),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                LineAnimationWidget(isReverse: true),
-                TextAnimated(),
-                LineAnimationWidget(),
-              ],
-            ),
-          ),
-        ],
+      backgroundColor: AppColors.black,
+      body: AnimatedOpacity(
+        opacity: animated ? 1 : 1,
+        duration: const Duration(milliseconds: 500),
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            LineAnimationWidget(isReverse: true),
+            TextAnimated(),
+            LineAnimationWidget(),
+          ],
+        ),
       ),
     );
   }

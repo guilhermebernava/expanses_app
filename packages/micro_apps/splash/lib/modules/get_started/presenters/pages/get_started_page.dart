@@ -12,11 +12,12 @@ class GetStartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
       body: AbstractBackground(
-        image: AppAssets.backgroundGrey,
-        opacity: 0.08,
+        image: AppAssets.backgroundBlue,
+        opacity: 0.3,
         size: size,
         children: [
           Padding(

@@ -25,6 +25,7 @@ class CommonPageStructure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: AbstractBackground(
         image: AppAssets.backgroundBlue,
         opacity: 0.7,
@@ -37,27 +38,29 @@ class CommonPageStructure extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const TransparentAppBarWidget(),
-                container ??
-                    Container(
-                      width: size.width,
-                      height: size.height * 0.895,
-                      padding: padding,
-                      decoration: BoxDecoration(
-                        color: AppColors.darkBlue,
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.black.withOpacity(0.5),
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                          )
-                        ],
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(35),
-                          topRight: Radius.circular(35),
+                Expanded(
+                  child: container ??
+                      Container(
+                        width: size.width,
+                        height: size.height,
+                        padding: padding,
+                        decoration: BoxDecoration(
+                          color: AppColors.darkBlue,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.black.withOpacity(0.5),
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                            )
+                          ],
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(35),
+                            topRight: Radius.circular(35),
+                          ),
                         ),
+                        child: body,
                       ),
-                      child: body,
-                    ),
+                ),
               ],
             ),
           ),

@@ -19,12 +19,9 @@ class LoginPage extends StatelessWidget {
         body: Form(
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 30),
-                child: LogoWidget(),
-              ),
+              const LogoWidget(),
               Column(
                 children: [
                   const LoginInput(
@@ -43,7 +40,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 0),
               CommonButton(
                 width: size.width,
                 onTap: () {},

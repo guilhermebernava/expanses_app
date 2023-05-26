@@ -17,15 +17,15 @@ class TransparentAppBarWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 10, top: 30, bottom: 15),
+          padding: const EdgeInsets.only(left: 10, top: 40, bottom: 15),
           child: GestureDetector(
             onTap: onTap ??
                 () {
                   Navigator.pop(context);
                 },
             child: Icon(
-              Icons.arrow_back_ios_new,
-              size: 25,
+              Icons.close,
+              size: 30,
               color: color,
             ),
           ),

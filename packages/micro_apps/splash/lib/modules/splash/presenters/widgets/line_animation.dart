@@ -40,7 +40,7 @@ class _LineAnimationWidgetState extends State<LineAnimationWidget>
           ),
           child: Container(
             height: 2.5,
-            color: AppColors.white,
+            color: AppColors.primary,
           ),
         ),
       ),

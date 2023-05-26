@@ -20,36 +20,38 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        HapticFeedback.lightImpact();
-        onTap();
-      },
-      child: Container(
-        width: width,
-        padding: const EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow()
-          ],
-          border: isReverseColor
-              ? Border.all(width: 2.5, color: AppColors.primary)
-              : null,
-          color: isReverseColor ? Colors.transparent : AppColors.primary,
-          borderRadius: BorderRadius.circular(100),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-          child: child ??
-              Text(
-                text,
-                textAlign: TextAlign.center,
-                style: AppFonts.montserrat(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.white,
+    double borderRadius = 100;
+    return Container(
+      width: width,
+      decoration: BoxDecoration(
+        border: isReverseColor
+            ? Border.all(
+                width: 4,
+                color: AppColors.primary,
+              )
+            : null,
+        borderRadius: BorderRadius.circular(borderRadius),
+      ),
+      child: Material(
+        borderRadius: BorderRadius.circular(borderRadius),
+        color: isReverseColor ? Colors.transparent : AppColors.primary,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          splashColor: AppColors.white.withOpacity(0.1),
+          enableFeedback: false,
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            child: child ??
+                Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: AppFonts.montserrat(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
+          ),
         ),
       ),
     );
