@@ -1,2 +1,5 @@
 #include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
 #include "Generated.xcconfig"
+
+API_KEY=AIzaSyD8Bwmf6sKOjzjESgvcKBRXCmqH2qKaxdM
+GOOGLE_APP_ID=1:992612709643:ios:88f7e20b5f0133b74c5e0e
