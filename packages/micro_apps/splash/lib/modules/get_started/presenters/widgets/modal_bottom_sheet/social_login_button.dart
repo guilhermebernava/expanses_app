@@ -35,6 +35,9 @@ class SocialLoginButton extends StatelessWidget {
               image,
               width: 50,
               height: 50,
+              errorBuilder: (context, error, stackTrace) {
+                return const Icon(Icons.error);
+              },
             ),
           ),
         ),

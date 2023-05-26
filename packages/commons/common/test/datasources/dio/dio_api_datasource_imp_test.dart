@@ -1,9 +1,21 @@
+import 'package:common/datasources/api/dio/check_internet.dart';
 import 'package:common/datasources/api/dio/dio_api_datasource_imp.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+class CheckInternetMock implements CheckInternet {
+  @override
+  Future<bool> hasInternet() async {
+    return true;
+  }
+}
+
 void main() {
+  final mock = CheckInternetMock();
+
+  TestWidgetsFlutterBinding.ensureInitialized();
   final service = DioApiDatasourceImp(
     baseUrl: "https://pokeapi.co/api/v2",
+    checkInternet: mock,
   );
 
   test('Should Work GET', () async {

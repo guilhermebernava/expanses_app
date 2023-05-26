@@ -15,6 +15,7 @@ export 'presenters/widgets/abstract_background.dart';
 export 'presenters/widgets/transparent_app_bar_widget.dart';
 export 'presenters/widgets/common_button.dart';
 export 'presenters/widgets/logo_widget.dart';
+export 'presenters/widgets/common_input.dart';
 
 //ANIMATIONS
 export 'presenters/animations/moving_animation.dart';

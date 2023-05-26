@@ -33,7 +33,7 @@ void main() {
       navigatorObservers: [mockObserver],
     ));
 
-    await tester.tap(find.byType(GestureDetector));
+    await tester.tap(find.byKey(const ValueKey("appBar")));
     await tester.pumpAndSettle();
     expect(mockObserver.poppedRoutes.length, 1);
   });

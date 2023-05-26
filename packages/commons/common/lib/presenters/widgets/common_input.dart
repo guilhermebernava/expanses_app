@@ -1,7 +1,7 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
-class LoginInput extends StatefulWidget {
+class CommonInput extends StatefulWidget {
   final String label;
   final String? counterLabel;
   final String? hintLabel;
@@ -12,7 +12,7 @@ class LoginInput extends StatefulWidget {
   final TextInputType textInputType;
   final TextInputAction textInputAction;
 
-  const LoginInput({
+  const CommonInput({
     super.key,
     required this.label,
     this.counterLabel,
@@ -26,10 +26,10 @@ class LoginInput extends StatefulWidget {
   });
 
   @override
-  State<LoginInput> createState() => _LoginInputState();
+  State<CommonInput> createState() => _LoginInputState();
 }
 
-class _LoginInputState extends State<LoginInput> {
+class _LoginInputState extends State<CommonInput> {
   late bool isHiden;
   final double _borderRadius = 15;
 

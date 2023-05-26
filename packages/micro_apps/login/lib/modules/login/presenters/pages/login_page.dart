@@ -1,7 +1,6 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:login/modules/login/presenters/widgets/login_input.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -24,12 +23,12 @@ class LoginPage extends StatelessWidget {
               const LogoWidget(),
               Column(
                 children: [
-                  const LoginInput(
+                  const CommonInput(
                     label: "E-mail",
                     hintLabel: "yourname@example.com",
                     textInputType: TextInputType.emailAddress,
                   ),
-                  LoginInput(
+                  CommonInput(
                     label: "Password",
                     isPassword: true,
                     hintLabel: "yourpassword",

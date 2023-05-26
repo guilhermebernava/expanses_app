@@ -19,6 +19,7 @@ class TransparentAppBarWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 10, top: 40, bottom: 15),
           child: GestureDetector(
+            key: const ValueKey("appBar"),
             onTap: onTap ??
                 () {
                   Navigator.pop(context);

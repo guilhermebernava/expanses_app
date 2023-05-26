@@ -1,7 +1,9 @@
 // ignore_for_file: depend_on_referenced_packages
+
 import 'package:expenzio/app/base_app.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:common_dependencies/common_dependencies.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'firebase_options.dart';
 

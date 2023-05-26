@@ -18,7 +18,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),
-      height: size.height * 0.55,
+      height: size.height * 0.6,
       width: double.infinity,
       child: Column(
         children: [

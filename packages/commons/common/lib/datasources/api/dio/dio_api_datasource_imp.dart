@@ -1,4 +1,5 @@
 import 'package:common/datasources/api/api_datasource.dart';
+import 'package:common/datasources/api/dio/check_internet.dart';
 import 'package:common/datasources/errors/api_error.dart';
 import 'package:common/utils/isolates/isolate_function_props.dart';
 import 'package:common/utils/isolates/isolate_functions.dart';
@@ -7,9 +8,13 @@ import 'package:common_dependencies/common_dependencies.dart';
 
 class DioApiDatasourceImp implements ApiDatasource {
   final String baseUrl;
+  final CheckInternet checkInternet;
   final _dio = Dio();
 
-  DioApiDatasourceImp({required this.baseUrl});
+  DioApiDatasourceImp({
+    required this.baseUrl,
+    required this.checkInternet,
+  });
 
   @override
   Future<Tuple<ApiError, Response>> get({required String endpoint}) async {
@@ -101,8 +106,5 @@ class DioApiDatasourceImp implements ApiDatasource {
     return Tuple.right(response);
   }
 
-  Future<bool> _haveInternet() async {
-    final connectivityResult = await (Connectivity().checkConnectivity());
-    return connectivityResult != ConnectivityResult.none;
-  }
+  Future<bool> _haveInternet() async => await checkInternet.hasInternet();
 }
