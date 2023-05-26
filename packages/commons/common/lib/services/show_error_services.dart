@@ -1,5 +1,4 @@
-import 'package:common/designs/app_colors.dart';
-import 'package:common/designs/app_fonts.dart';
+import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
 class ShowErrorServices {
@@ -15,8 +14,9 @@ class ShowErrorServices {
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Colors.red,
-            image: const DecorationImage(
-              image: AssetImage("assets/images/texture.png"),
+            image: DecorationImage(
+              image: const AssetImage(AppAssets.backgroundBlue),
+              onError: (exception, stackTrace) {},
               fit: BoxFit.cover,
               opacity: 0.15,
             ),

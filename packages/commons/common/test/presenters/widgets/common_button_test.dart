@@ -16,9 +16,26 @@ void main() {
     expect(find.byKey(const ValueKey("test")), findsOneWidget);
   });
 
-  testWidgets('It should create common button', (tester) async {
+  testWidgets('It should onTap works', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
+    bool executed = false;
+    await tester.pumpWidget(MaterialApp(
+      home: CommonButton(
+        onTap: () {
+          executed = true;
+        },
+        text: "test",
+      ),
+    ));
 
+    final button = find.byKey(const ValueKey("test"));
+    await tester.tap(button);
+    await tester.pump();
+    expect(executed, true);
+  });
+
+  testWidgets('It should be primary color', (tester) async {
+    TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(MaterialApp(
       home: CommonButton(
         onTap: () {},
@@ -26,9 +43,33 @@ void main() {
       ),
     ));
 
-    final button = find.byKey(const ValueKey("test"));
+    final widgetFinder = find.byWidgetPredicate((widget) {
+      if (widget is Material) {
+        return widget.color == AppColors.primary;
+      }
+      return false;
+    });
 
-    tester.tap(button);
-    await tester.pump();
+    expect(widgetFinder, findsOneWidget);
+  });
+
+  testWidgets('It should be transparente', (tester) async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    await tester.pumpWidget(MaterialApp(
+      home: CommonButton(
+        onTap: () {},
+        text: "test",
+        isReverseColor: true,
+      ),
+    ));
+
+    final widgetFinder = find.byWidgetPredicate((widget) {
+      if (widget is Material) {
+        return widget.color == Colors.transparent;
+      }
+      return false;
+    });
+
+    expect(widgetFinder, findsOneWidget);
   });
 }
