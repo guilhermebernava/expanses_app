@@ -21,6 +21,7 @@ class CommonButton extends StatelessWidget {
   Widget build(BuildContext context) {
     double borderRadius = 100;
     return Container(
+      key: ValueKey(text),
       width: width,
       decoration: BoxDecoration(
         border: isReverseColor
