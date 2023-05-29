@@ -14,6 +14,7 @@ dependencies:
     git:
       url: https://github.com/guilhermebernava/micro_core.git
       ref: main
+    version: 0.0.2
 
   common_dependencies:
     path: ../../commons/common_dependencies

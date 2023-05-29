@@ -14,6 +14,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: const ValueKey("GetStartedModalBottomSheet"),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
