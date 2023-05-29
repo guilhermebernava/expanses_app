@@ -106,14 +106,14 @@ packages:
     source: hosted
     version: "1.17.1"
   common:
-    dependency: "direct main"
+    dependency: transitive
     description:
       path: "packages/commons/common"
       relative: true
     source: path
     version: "0.0.1"
   common_dependencies:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "packages/commons/common_dependencies"
       relative: true
@@ -438,7 +438,7 @@ packages:
     source: hosted
     version: "1.9.1"
   micro_core:
-    dependency: "direct main"
+    dependency: transitive
     description:
       path: "."
       ref: main

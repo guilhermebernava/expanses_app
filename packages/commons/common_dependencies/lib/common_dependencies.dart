@@ -11,3 +11,4 @@ export 'package:connectivity_plus/connectivity_plus.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:firebase_core/firebase_core.dart';
 export 'package:flutter_dotenv/flutter_dotenv.dart';
+export 'package:micro_core/micro_core.dart';

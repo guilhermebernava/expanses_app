@@ -23,6 +23,13 @@ dependencies:
   connectivity_plus: ^4.0.1
   flutter_launcher_icons: ^0.13.1
   flutter_dotenv: ^5.0.2
+  micro_core:
+    git:
+      url: https://github.com/guilhermebernava/micro_core.git
+      ref: main
+    version: ^0.0.2
+  common:
+    path: ../common
 
 dev_dependencies:
   flutter_test:

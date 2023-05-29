@@ -10,15 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  micro_core:
-    git:
-      url: https://github.com/guilhermebernava/micro_core.git
-      ref: main
-
   common_dependencies:
     path: ../../commons/common_dependencies
-  common:
-    path: ../../commons/common
 
 dev_dependencies:
   flutter_test:

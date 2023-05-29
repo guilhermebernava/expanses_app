@@ -12,13 +12,8 @@ dependencies:
   path: any
 
   cupertino_icons: ^1.0.2
-  micro_core:
-    git:
-      url: https://github.com/guilhermebernava/micro_core.git
-      ref: main
-    version: ^0.0.2
-  common:
-    path: packages/commons/common
+  common_dependencies:
+    path: packages/commons/common_dependencies
 
   #micro_apps
   login:
