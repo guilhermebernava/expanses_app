@@ -1,9 +1,6 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:splash/modules/get_started/domain/usecases/google_auth/google_auth_usecase.dart';
-import 'package:splash/modules/get_started/presenters/widgets/modal_bottom_sheet/or_widget.dart';
-
-import '../social_login_button.dart';
 
 class GetStartedModalBottomSheet extends StatelessWidget {
   final Size size;
@@ -75,7 +72,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                         image: AppAssets.githubIcon,
                         size: size,
                         onTap: () async {
-                          //TODO implementar login com  o google
+                          //TODO implementar login com  o github
                         },
                       ),
                       const SizedBox(

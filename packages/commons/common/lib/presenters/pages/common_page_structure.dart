@@ -6,10 +6,12 @@ class CommonPageStructure extends StatelessWidget {
   final Widget? body;
   final EdgeInsets padding;
   final Widget? container;
+  final bool canPopUp;
 
   CommonPageStructure({
     super.key,
     required this.size,
+    this.canPopUp = true,
     this.body,
     this.container,
     this.padding = const EdgeInsets.all(20),
@@ -37,7 +39,15 @@ class CommonPageStructure extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const TransparentAppBarWidget(),
+                canPopUp
+                    ? const TransparentAppBarWidget()
+                    : const Padding(
+                        padding: EdgeInsets.only(
+                          left: 10,
+                          top: 70,
+                          bottom: 15,
+                        ),
+                      ),
                 Expanded(
                   child: container ??
                       Container(

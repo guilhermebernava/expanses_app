@@ -1,5 +1,4 @@
 import 'package:common/common.dart';
-import 'package:common/mocks/mock_navigator_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:login/modules/sign_up/presenters/pages/sign_up_page.dart';

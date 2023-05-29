@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class CommonPageAnimated extends StatelessWidget {
   final Size size;
   final Widget body;
+  final bool canPopUp;
   final EdgeInsets? padding;
 
   const CommonPageAnimated({
@@ -13,11 +14,13 @@ class CommonPageAnimated extends StatelessWidget {
     required this.body,
     required this.size,
     this.padding,
+    this.canPopUp = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return CommonPageStructure(
+      canPopUp: canPopUp,
       size: size,
       padding: padding ?? const EdgeInsets.all(20),
       container: MovingAnimation(

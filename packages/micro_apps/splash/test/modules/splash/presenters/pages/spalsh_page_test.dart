@@ -3,8 +3,8 @@ import 'package:common_dependencies/common_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:splash/modules/get_started/presenters/pages/get_started_page.dart';
-import 'package:splash/modules/splash/domain/use_cases/first_time_app_usecase.dart';
-import 'package:splash/modules/splash/domain/use_cases/first_time_app_usecase_imp.dart';
+import 'package:splash/modules/splash/domain/use_cases/first_time_app/first_time_app_usecase.dart';
+import 'package:splash/modules/splash/domain/use_cases/first_time_app/first_time_app_usecase_imp.dart';
 import 'package:splash/modules/splash/presenters/pages/spalsh_page.dart';
 import 'package:splash/splash.dart';
 

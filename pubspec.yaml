@@ -20,6 +20,8 @@ dependencies:
     path: packages/micro_apps/login
   splash:
     path: packages/micro_apps/splash
+  home:
+    path: packages/micro_apps/home
 
 dev_dependencies:
   flutter_test:

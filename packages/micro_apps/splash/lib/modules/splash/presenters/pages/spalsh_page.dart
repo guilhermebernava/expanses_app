@@ -30,7 +30,10 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _controller = SplashController(firstTimeAppUseCase: GetIt.instance.get());
+    _controller = SplashController(
+      firstTimeAppUseCase: GetIt.instance.get(),
+      getUserUsecase: GetIt.instance.get(),
+    );
     _controller.redirect(context);
     _startAnimation();
   }

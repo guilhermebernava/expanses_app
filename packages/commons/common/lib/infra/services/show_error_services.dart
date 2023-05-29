@@ -11,6 +11,7 @@ class ShowErrorServices {
         margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         duration: const Duration(seconds: 5),
         content: Container(
+          key: const ValueKey("Error_Snackbar"),
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Colors.red,

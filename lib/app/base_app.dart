@@ -1,6 +1,7 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:home/home_resolver.dart';
 import 'package:login/login.dart';
 import 'package:micro_core/micro_core.dart';
 import 'package:splash/splash.dart';
@@ -19,6 +20,7 @@ class App extends StatelessWidget with BaseApp {
   List<MicroApp> get microApps => [
         LoginResolver(),
         SplashResolver(),
+        HomeResolver(),
       ];
 
   @override

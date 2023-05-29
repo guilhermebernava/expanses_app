@@ -1,7 +1,6 @@
-import 'package:common/mocks/mock_navigator_observer.dart';
-import 'package:common/presenters/widgets/common_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:common/common.dart';
 import 'package:splash/modules/get_started/presenters/pages/get_started_page.dart';
 import 'package:splash/modules/get_started/presenters/widgets/carrousel_widget.dart';
 import 'package:splash/modules/get_started/presenters/widgets/modal_bottom_sheet/modals/get_started_modal_bottom_sheet.dart';

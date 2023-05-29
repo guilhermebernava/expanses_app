@@ -1,5 +1,5 @@
 import 'package:common/datasources/auth/auth.dart';
-import 'package:common/datasources/auth/firebase/firabase_auth_imp.dart';
+import 'package:common/datasources/auth/firebase/firabase_auth_datasource_imp.dart';
 import 'package:common/datasources/databases/app_database/app_repository.dart';
 import 'package:common/datasources/databases/app_database/shared_preferences/app_repository_shared_imp.dart';
 import 'package:common_dependencies/common_dependencies.dart';

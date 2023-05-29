@@ -1,4 +1,4 @@
-import 'package:common/mocks/mock_navigator_observer.dart';
+import 'package:common/utils/mocks/mock_navigator_observer.dart';
 import 'package:common/presenters/widgets/transparent_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
