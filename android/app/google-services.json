@@ -12,7 +12,20 @@
           "package_name": "com.example.expanses_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "992612709643-3cdo21unjumbecvi0042qp9jb9bj418i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.expanses_app",
+            "certificate_hash": "c710af91368afcc7f2908303654e8847b20df247"
+          }
+        },
+        {
+          "client_id": "992612709643-dv25lnaab5jl2vef1eptvls8vrgfv7a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAfYd7ggf94SPjIRxqdImIgqtiHZva2zrI"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992612709643-dv25lnaab5jl2vef1eptvls8vrgfv7a0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "992612709643-ojsusktj0obnrq1c1s1mik7lfvnaq8fq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.expansesApp"
+              }
+            }
+          ]
         }
       }
     }

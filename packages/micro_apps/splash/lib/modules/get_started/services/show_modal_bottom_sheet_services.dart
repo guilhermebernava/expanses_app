@@ -1,4 +1,5 @@
 import 'package:common/common.dart';
+import 'package:common_dependencies/common_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:splash/modules/get_started/presenters/widgets/modal_bottom_sheet/modals/get_started_modal_bottom_sheet.dart';
 
@@ -13,7 +14,10 @@ class ShowModalBottomSheetServices {
         borderRadius: BorderRadius.circular(30.0),
       ),
       backgroundColor: AppColors.mediumBlue,
-      builder: (ctx) => GetStartedModalBottomSheet(size: size),
+      builder: (ctx) => GetStartedModalBottomSheet(
+        size: size,
+        googleAuthUsecase: GetIt.instance.get(),
+      ),
     );
   }
 }

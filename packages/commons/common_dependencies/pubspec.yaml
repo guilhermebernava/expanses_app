@@ -19,7 +19,11 @@ dependencies:
   get_it: ^7.6.0
   bloc_test: ^9.1.1
   lottie: ^2.3.2
+
+  google_sign_in: ^6.1.2
   firebase_core: ^2.13.0
+  firebase_auth: ^4.6.1
+
   connectivity_plus: ^4.0.1
   flutter_launcher_icons: ^0.13.1
   flutter_dotenv: ^5.0.2

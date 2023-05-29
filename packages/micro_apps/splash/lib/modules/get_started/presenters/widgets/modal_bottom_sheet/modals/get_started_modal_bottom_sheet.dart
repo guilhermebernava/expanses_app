@@ -1,14 +1,17 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:splash/modules/get_started/domain/usecases/google_auth/google_auth_usecase.dart';
 import 'package:splash/modules/get_started/presenters/widgets/modal_bottom_sheet/or_widget.dart';
 
 import '../social_login_button.dart';
 
 class GetStartedModalBottomSheet extends StatelessWidget {
   final Size size;
+  final GoogleAuthUsecase googleAuthUsecase;
   const GetStartedModalBottomSheet({
     super.key,
     required this.size,
+    required this.googleAuthUsecase,
   });
 
   @override
@@ -71,8 +74,8 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                         color: AppColors.black,
                         image: AppAssets.githubIcon,
                         size: size,
-                        onTap: () {
-                          //TODO implementar login com o google
+                        onTap: () async {
+                          //TODO implementar login com  o google
                         },
                       ),
                       const SizedBox(
@@ -82,8 +85,8 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                         color: AppColors.white,
                         image: AppAssets.googleIcon,
                         size: size,
-                        onTap: () {
-                          //TODO implementar login com o github
+                        onTap: () async {
+                          await googleAuthUsecase(context);
                         },
                       ),
                     ],
