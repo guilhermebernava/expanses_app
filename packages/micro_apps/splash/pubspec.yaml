@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  path: any
 
   common_dependencies:
     path: ../../commons/common_dependencies
