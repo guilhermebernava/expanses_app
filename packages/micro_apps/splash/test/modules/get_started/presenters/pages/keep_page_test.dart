@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:splash/modules/get_started/presenters/pages/investiment_page.dart';
 import 'package:splash/modules/get_started/presenters/pages/keep_page.dart';
 import 'package:splash/modules/get_started/presenters/widgets/lottie_box.dart';
 
