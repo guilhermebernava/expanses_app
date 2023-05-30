@@ -1,10 +1,10 @@
 import 'package:common/common.dart';
-import 'package:common_dependencies/common_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:splash/modules/get_started/presenters/widgets/modal_bottom_sheet/modals/get_started_modal_bottom_sheet.dart';
 
 class ShowModalBottomSheetServices {
-  static void showGetStarted(BuildContext context, Size size) {
+  static void showGetStarted(
+      BuildContext context, Size size, GoogleAuthUsecase googleAuthUsecase) {
     showModalBottomSheet(
       context: context,
       elevation: 0,
@@ -16,7 +16,7 @@ class ShowModalBottomSheetServices {
       backgroundColor: AppColors.mediumBlue,
       builder: (ctx) => GetStartedModalBottomSheet(
         size: size,
-        googleAuthUsecase: GetIt.instance.get(),
+        googleAuthUsecase: googleAuthUsecase,
       ),
     );
   }

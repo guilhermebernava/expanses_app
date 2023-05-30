@@ -20,7 +20,7 @@ void main() {
     expect(find.byType(Form), findsOneWidget);
     expect(find.byType(SignUpLogo), findsOneWidget);
     expect(find.byType(CommonInput), findsWidgets);
-    expect(find.byType(CommonButton), findsOneWidget);
+    expect(find.byType(CommonButtonText), findsOneWidget);
   });
 
   testWidgets('It should navigate', (tester) async {

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class GetStartedModalBottomSheet extends StatelessWidget {
   final Size size;
   final GoogleAuthUsecase googleAuthUsecase;
+
   const GetStartedModalBottomSheet({
     super.key,
     required this.size,

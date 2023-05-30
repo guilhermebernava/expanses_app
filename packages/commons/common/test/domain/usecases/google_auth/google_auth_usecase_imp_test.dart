@@ -26,7 +26,12 @@ void main() {
   testWidgets('It should not show message error when have success login in',
       (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
-    await tester.pumpWidget(MaterialApp(home: Container()));
+    await tester.pumpWidget(MaterialApp(
+      home: Container(),
+      routes: {
+        AppRoutes.home: (context) => Container(),
+      },
+    ));
     final context = tester.element(find.byType(Container));
     final user = AppUser(displayName: "", id: "");
     when(() => authMock.loginGoogle())

@@ -78,6 +78,7 @@ class _CommonButtonState extends State<CommonButtonText>
   Widget _notSafeButton() {
     return Container(
       key: ValueKey(widget.text),
+      width: widget.width,
       height: 70,
       decoration: BoxDecoration(
         border: widget.isReverseColor

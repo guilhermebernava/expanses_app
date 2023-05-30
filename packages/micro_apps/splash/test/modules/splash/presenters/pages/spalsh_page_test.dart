@@ -1,34 +1,15 @@
-import 'package:common/datasources/databases/app_database/shared_preferences/app_repository_shared_imp.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:splash/modules/get_started/presenters/pages/get_started_page.dart';
 import 'package:splash/modules/splash/domain/use_cases/first_time_app/first_time_app_usecase.dart';
 import 'package:splash/modules/splash/domain/use_cases/first_time_app/first_time_app_usecase_imp.dart';
+import 'package:splash/modules/splash/domain/use_cases/get_user/get_user_usecase_imp.dart';
 import 'package:splash/modules/splash/presenters/pages/spalsh_page.dart';
-import 'package:splash/splash.dart';
+import 'package:common/common.dart';
 
-class BaseMock extends StatelessWidget with BaseApp {
-  BaseMock({super.key}) {
-    super.registerRoutes();
-  }
-
-  @override
-  Map<String, WidgetBuilderArgs> get baseRoutes => {};
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: "/splash",
-      onGenerateRoute: super.generateRoute,
-    );
-  }
-
-  @override
-  List<MicroApp> get microApps => [
-        SplashResolver(),
-      ];
-}
+class GoogleMock extends Mock implements GoogleAuthUsecase {}
 
 void main() {
   setUpAll(() {
@@ -46,9 +27,23 @@ void main() {
   testWidgets('It should create page and navigate to getStartedPage',
       (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
-    await tester.pumpWidget(BaseMock());
+    await tester.pumpWidget(MaterialApp(
+      home: SplashPage(
+        firstTimeAppUseCase: FirstTimeAppUsecaseImp(
+          appRepository: AppRepositorySharedImp(),
+        ),
+        getUserUsecase: GetUserUsecaseImp(
+          appRepository: AppRepositorySharedImp(),
+        ),
+      ),
+      routes: {
+        AppRoutes.getStarted: (context) =>
+            GetStartedPage(googleAuthUsecase: GoogleMock())
+      },
+    ));
+
     expect(find.byType(SplashPage), findsOneWidget);
-    await tester.pumpAndSettle(const Duration(seconds: 1));
+    await tester.pumpAndSettle(const Duration(seconds: 5));
     expect(find.byType(GetStartedPage), findsOneWidget);
   });
 }

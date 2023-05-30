@@ -1,4 +1,4 @@
-import 'package:micro_core/micro_core.dart';
+import 'package:common_dependencies/common_dependencies.dart';
 import 'package:splash/injector.dart';
 import 'package:common/common.dart';
 import 'package:splash/modules/get_started/presenters/pages/get_started_page.dart';
@@ -9,8 +9,13 @@ class SplashResolver implements MicroApp {
   String get appName => "login";
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-        AppRoutes.splash: (context, args) => const SplashPage(),
-        AppRoutes.getStarted: (context, args) => const GetStartedPage(),
+        AppRoutes.splash: (context, args) => SplashPage(
+              firstTimeAppUseCase: GetIt.instance.get(),
+              getUserUsecase: GetIt.instance.get(),
+            ),
+        AppRoutes.getStarted: (context, args) => GetStartedPage(
+              googleAuthUsecase: GetIt.instance.get(),
+            ),
       };
 
   @override

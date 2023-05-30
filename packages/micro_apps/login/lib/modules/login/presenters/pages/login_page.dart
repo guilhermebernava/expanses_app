@@ -1,11 +1,14 @@
 import 'package:common/common.dart';
-import 'package:common_dependencies/common_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login/modules/login/presenters/widgets/social_login_buttons.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final GoogleAuthUsecase googleAuthUsecase;
+  const LoginPage({
+    super.key,
+    required this.googleAuthUsecase,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +53,7 @@ class LoginPage extends StatelessWidget {
               SocialLoginButtons(
                 canPop: canPop,
                 size: size,
-                googleAuthUsecase: GetIt.instance.get(),
+                googleAuthUsecase: googleAuthUsecase,
               )
             ],
           ),

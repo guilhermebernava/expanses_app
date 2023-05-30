@@ -7,7 +7,12 @@ import 'package:splash/modules/get_started/presenters/widgets/carrousel_widget.d
 import 'package:splash/modules/get_started/services/show_modal_bottom_sheet_services.dart';
 
 class GetStartedPage extends StatelessWidget {
-  const GetStartedPage({super.key});
+  final GoogleAuthUsecase googleAuthUsecase;
+
+  const GetStartedPage({
+    super.key,
+    required this.googleAuthUsecase,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +56,7 @@ class GetStartedPage extends StatelessWidget {
                           ShowModalBottomSheetServices.showGetStarted(
                         context,
                         size,
+                        googleAuthUsecase,
                       ),
                       text: "Get Started",
                     ),

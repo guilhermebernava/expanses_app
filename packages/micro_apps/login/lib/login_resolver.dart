@@ -1,7 +1,7 @@
+import 'package:common_dependencies/common_dependencies.dart';
 import 'package:login/injector.dart';
 import 'package:login/modules/login/presenters/pages/login_page.dart';
 import 'package:login/modules/sign_up/presenters/pages/sign_up_page.dart';
-import 'package:micro_core/micro_core.dart';
 import 'package:common/common.dart';
 
 class LoginResolver implements MicroApp {
@@ -9,7 +9,9 @@ class LoginResolver implements MicroApp {
   String get appName => "login";
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-        AppRoutes.signIn: (context, args) => const LoginPage(),
+        AppRoutes.signIn: (context, args) => LoginPage(
+              googleAuthUsecase: GetIt.instance.get(),
+            ),
         AppRoutes.signUp: (context, args) => const SignUpPage(),
       };
 

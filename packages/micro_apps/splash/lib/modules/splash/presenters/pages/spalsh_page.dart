@@ -1,13 +1,21 @@
 import 'package:common/common.dart';
-import 'package:common_dependencies/common_dependencies.dart';
 import 'package:flutter/material.dart';
+import 'package:splash/modules/splash/domain/use_cases/first_time_app/first_time_app_usecase.dart';
+import 'package:splash/modules/splash/domain/use_cases/get_user/get_user_usecase.dart';
 
 import '../controllers/splash_controller.dart';
 import '../widgets/line_animation.dart';
 import '../widgets/text_animated.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
+  final FirstTimeAppUseCase firstTimeAppUseCase;
+  final GetUserUsecase getUserUsecase;
+
+  const SplashPage({
+    super.key,
+    required this.firstTimeAppUseCase,
+    required this.getUserUsecase,
+  });
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -31,8 +39,8 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     _controller = SplashController(
-      firstTimeAppUseCase: GetIt.instance.get(),
-      getUserUsecase: GetIt.instance.get(),
+      firstTimeAppUseCase: widget.firstTimeAppUseCase,
+      getUserUsecase: widget.getUserUsecase,
     );
     _controller.redirect(context);
     _startAnimation();
