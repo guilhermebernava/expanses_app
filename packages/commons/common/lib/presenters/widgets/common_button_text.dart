@@ -1,4 +1,5 @@
 import 'package:common/common.dart';
+import 'package:common/presenters/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 
 class CommonButtonText extends StatefulWidget {
@@ -6,6 +7,7 @@ class CommonButtonText extends StatefulWidget {
   final Future<void> Function() onTap;
   final String text;
   final bool isReverseColor;
+  final bool isCircularButton;
   final bool _isSafeButton;
 
   const CommonButtonText({
@@ -13,6 +15,7 @@ class CommonButtonText extends StatefulWidget {
     required this.width,
     required this.onTap,
     required this.text,
+    this.isCircularButton = false,
     this.isReverseColor = false,
   }) : _isSafeButton = false;
 
@@ -21,6 +24,7 @@ class CommonButtonText extends StatefulWidget {
     required this.width,
     required this.onTap,
     required this.text,
+    this.isCircularButton = false,
     this.isReverseColor = false,
   }) : _isSafeButton = true;
 
@@ -32,12 +36,13 @@ class _CommonButtonState extends State<CommonButtonText>
     with TickerProviderStateMixin {
   late final AnimationController? _animationController;
   late final Animation<double>? _widthAnimation;
-  double borderRadius = 100;
   bool _isButtonDisabled = false;
+  late final double borderRadius;
 
   @override
   void initState() {
     super.initState();
+    borderRadius = widget.isCircularButton ? 100 : 15;
     if (widget._isSafeButton) {
       _animationController = AnimationController(
           vsync: this, duration: const Duration(milliseconds: 800));
@@ -148,9 +153,7 @@ class _CommonButtonState extends State<CommonButtonText>
                 },
           child: Center(
             child: _isButtonDisabled
-                ? const CircularProgressIndicator(
-                    color: AppColors.white,
-                  )
+                ? const LoadingWidget(color: AppColors.white)
                 : Text(
                     widget.text,
                     textAlign: TextAlign.center,

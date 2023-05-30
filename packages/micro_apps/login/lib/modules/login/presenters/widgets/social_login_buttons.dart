@@ -22,7 +22,7 @@ class SocialLoginButtons extends StatelessWidget {
               OrWidget(size: size),
               const SizedBox(height: 10),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SocialLoginButton(
                     color: AppColors.grey,
@@ -31,9 +31,6 @@ class SocialLoginButtons extends StatelessWidget {
                     onTap: () async {
                       //TODO implementar login com  o github
                     },
-                  ),
-                  const SizedBox(
-                    width: 40,
                   ),
                   SocialLoginButton(
                     color: AppColors.white,

@@ -11,10 +11,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CommonButtonText(
-        width: 150,
-        onTap: () async => await logoutUsecase(context),
-        text: "LOGOUT",
+      body: Center(
+        child: CommonButtonText(
+          width: 150,
+          onTap: () async => await logoutUsecase(context),
+          text: "LOGOUT",
+        ),
       ),
     );
   }

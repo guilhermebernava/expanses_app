@@ -24,7 +24,8 @@ class GoogleAuthUsecaseImp implements GoogleAuthUsecase {
     }
 
     if (context.mounted) {
-      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(AppRoutes.home, (_) => false);
     }
   }
 }

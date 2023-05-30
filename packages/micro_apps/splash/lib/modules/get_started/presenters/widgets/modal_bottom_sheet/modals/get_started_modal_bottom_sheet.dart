@@ -19,7 +19,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),
-      height: size.height * 0.6,
+      height: size.height * 0.52,
       width: double.infinity,
       child: Column(
         children: [
@@ -47,7 +47,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                   CommonButtonText(
                     width: size.width,
                     onTap: () async {
-                      Navigator.pushNamed(context, "/sign-up");
+                      Navigator.pushNamed(context, AppRoutes.signUp);
                     },
                     text: "Sign Up",
                   ),
@@ -65,7 +65,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                   OrWidget(size: size),
                   const SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       SocialLoginButton(
                         color: AppColors.black,
@@ -74,9 +74,6 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                         onTap: () async {
                           //TODO implementar login com  o github
                         },
-                      ),
-                      const SizedBox(
-                        width: 40,
                       ),
                       SocialLoginButton(
                         color: AppColors.white,

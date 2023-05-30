@@ -22,21 +22,24 @@ class SplashController {
     }
 
     if (isFirstTime.right && context.mounted) {
-      Navigator.of(context).pushReplacementNamed(AppRoutes.getStarted);
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(AppRoutes.getStarted, (_) => false);
       return;
     }
 
     final existUser = await getUserUsecase();
 
     if (existUser == null && context.mounted) {
-      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(AppRoutes.home, (_) => false);
       return;
     }
 
     debugPrint("EXIST USER ERROR: $existUser");
 
     if (context.mounted) {
-      Navigator.of(context).pushReplacementNamed(AppRoutes.getStarted);
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(AppRoutes.getStarted, (_) => false);
       return;
     }
   }

@@ -1,4 +1,5 @@
 import 'package:common/common.dart';
+import 'package:common/presenters/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 
 class SocialLoginButton extends StatefulWidget {
@@ -62,14 +63,16 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
                 },
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: Image.asset(
-              widget.image,
-              width: 50,
-              height: 50,
-              errorBuilder: (context, error, stackTrace) {
-                return const Icon(Icons.error);
-              },
-            ),
+            child: _isButtonDisabled
+                ? const LoadingWidget(isSocialButton: true)
+                : Image.asset(
+                    widget.image,
+                    width: 35,
+                    height: 35,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Icon(Icons.error);
+                    },
+                  ),
           ),
         ),
       ),
