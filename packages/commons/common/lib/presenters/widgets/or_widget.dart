@@ -8,34 +8,34 @@ class OrWidget extends StatelessWidget {
   const OrWidget({
     super.key,
     required this.size,
-    this.percentageWidth = 0.32,
+    this.percentageWidth = 0.25,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: size.width * percentageWidth,
-            height: 1,
-            color: AppColors.white,
-          ),
-          Text(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          width: size.width * percentageWidth,
+          height: 1,
+          color: AppColors.grey,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
             "or",
             textAlign: TextAlign.center,
-            style: AppFonts.sourceSansPro(),
+            style: AppFonts.sourceSansPro(fontSize: 16, color: AppColors.grey),
           ),
-          Container(
-            width: size.width * percentageWidth,
-            height: 1,
-            color: AppColors.white,
-          )
-        ],
-      ),
+        ),
+        Container(
+          width: size.width * percentageWidth,
+          height: 1,
+          color: AppColors.grey,
+        )
+      ],
     );
   }
 }

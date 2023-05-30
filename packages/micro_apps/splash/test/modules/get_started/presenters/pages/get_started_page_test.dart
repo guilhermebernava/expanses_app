@@ -11,10 +11,13 @@ class GoogleMock extends Mock implements GoogleAuthUsecase {}
 void main() {
   testWidgets('It should create the widget', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
-    await tester.pumpWidget(MaterialApp(
+    await tester.pumpWidget(
+      MaterialApp(
         home: GetStartedPage(
-      googleAuthUsecase: GoogleMock(),
-    )));
+          googleAuthUsecase: GoogleMock(),
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
     expect(find.byType(GetStartedPage), findsOneWidget);
   });

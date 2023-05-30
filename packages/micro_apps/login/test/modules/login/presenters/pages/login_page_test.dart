@@ -42,7 +42,7 @@ void main() {
     await tester.pumpAndSettle();
     final t = find.byKey(const ValueKey("appBar"));
     await tester.tap(t);
-    await tester.pumpAndSettle();
+    await tester.pump();
     expect(mockObserver.poppedRoutes.length, 1);
   });
 

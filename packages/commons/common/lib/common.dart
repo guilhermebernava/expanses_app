@@ -31,12 +31,12 @@ export 'utils/app_routes.dart';
 //WIDGETS
 export 'presenters/widgets/abstract_background.dart';
 export 'presenters/widgets/transparent_app_bar_widget.dart';
-export 'presenters/widgets/common_button.dart';
 export 'presenters/widgets/logo_widget.dart';
 export 'presenters/widgets/common_input.dart';
 export 'presenters/widgets/social_login_button.dart';
 export 'presenters/widgets/or_widget.dart';
 export 'presenters/widgets/common_button_text.dart';
+export 'presenters/widgets/common_text_button.dart';
 
 //ANIMATIONS
 export 'presenters/animations/moving_animation.dart';

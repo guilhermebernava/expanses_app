@@ -42,16 +42,16 @@ class _LoginInputState extends State<CommonInput> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 8, bottom: 10),
+            padding: const EdgeInsets.only(left: 8, bottom: 15),
             child: Text(
               widget.label,
               style: AppFonts.sourceSansPro(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),

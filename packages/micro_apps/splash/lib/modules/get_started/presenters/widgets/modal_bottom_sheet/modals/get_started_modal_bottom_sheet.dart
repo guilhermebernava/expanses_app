@@ -1,5 +1,6 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:splash/modules/get_started/services/show_modal_bottom_sheet_services.dart';
 
 class GetStartedModalBottomSheet extends StatelessWidget {
   final Size size;
@@ -19,7 +20,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),
-      height: size.height * 0.52,
+      height: size.height * 0.35,
       width: double.infinity,
       child: Column(
         children: [
@@ -56,32 +57,16 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                     child: CommonButtonText(
                       width: size.width,
                       onTap: () async {
-                        Navigator.pushNamed(context, AppRoutes.signIn);
+                        Navigator.pop(context);
+                        ShowModalBottomSheetServices.showSignIn(
+                          context,
+                          size,
+                          googleAuthUsecase,
+                        );
                       },
                       isReverseColor: true,
                       text: "Sign In",
                     ),
-                  ),
-                  OrWidget(size: size),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SocialLoginButton(
-                        color: AppColors.black,
-                        image: AppAssets.githubIcon,
-                        size: size,
-                        onTap: () async {
-                          //TODO implementar login com  o github
-                        },
-                      ),
-                      SocialLoginButton(
-                        color: AppColors.white,
-                        image: AppAssets.googleIcon,
-                        size: size,
-                        onTap: () async => await googleAuthUsecase(context),
-                      ),
-                    ],
                   ),
                 ],
               ),

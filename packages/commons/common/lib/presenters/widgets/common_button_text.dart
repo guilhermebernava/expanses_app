@@ -7,7 +7,7 @@ class CommonButtonText extends StatefulWidget {
   final Future<void> Function() onTap;
   final String text;
   final bool isReverseColor;
-  final bool isCircularButton;
+  final Widget? leading;
   final bool _isSafeButton;
 
   const CommonButtonText({
@@ -15,7 +15,7 @@ class CommonButtonText extends StatefulWidget {
     required this.width,
     required this.onTap,
     required this.text,
-    this.isCircularButton = false,
+    this.leading,
     this.isReverseColor = false,
   }) : _isSafeButton = false;
 
@@ -24,7 +24,7 @@ class CommonButtonText extends StatefulWidget {
     required this.width,
     required this.onTap,
     required this.text,
-    this.isCircularButton = false,
+    this.leading,
     this.isReverseColor = false,
   }) : _isSafeButton = true;
 
@@ -37,12 +37,11 @@ class _CommonButtonState extends State<CommonButtonText>
   late final AnimationController? _animationController;
   late final Animation<double>? _widthAnimation;
   bool _isButtonDisabled = false;
-  late final double borderRadius;
+  final double borderRadius = 100;
 
   @override
   void initState() {
     super.initState();
-    borderRadius = widget.isCircularButton ? 100 : 15;
     if (widget._isSafeButton) {
       _animationController = AnimationController(
           vsync: this, duration: const Duration(milliseconds: 800));
@@ -59,10 +58,11 @@ class _CommonButtonState extends State<CommonButtonText>
   void _activeButton() {
     Future.delayed(const Duration(milliseconds: 1500), () {
       if (mounted) {
-        setState(() {
-          _isButtonDisabled = false;
+        _animationController?.reverse().then((value) {
+          setState(() {
+            _isButtonDisabled = false;
+          });
         });
-        _animationController?.reverse();
       }
     });
   }
@@ -84,7 +84,6 @@ class _CommonButtonState extends State<CommonButtonText>
     return Container(
       key: ValueKey(widget.text),
       width: widget.width,
-      height: 70,
       decoration: BoxDecoration(
         border: widget.isReverseColor
             ? Border.all(
@@ -102,15 +101,22 @@ class _CommonButtonState extends State<CommonButtonText>
           splashColor: AppColors.white.withOpacity(0.1),
           enableFeedback: false,
           onTap: () async => await widget.onTap(),
-          child: Center(
-            child: Text(
-              widget.text,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.fade,
-              style: AppFonts.montserrat(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              children: [
+                widget.leading ?? Container(),
+                Text(
+                  widget.text,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.fade,
+                  style: AppFonts.montserrat(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -124,7 +130,6 @@ class _CommonButtonState extends State<CommonButtonText>
       builder: (_, child) => Container(
         key: ValueKey(widget.text),
         width: _widthAnimation!.value,
-        height: 70,
         decoration: BoxDecoration(
           border: widget.isReverseColor
               ? Border.all(
@@ -151,18 +156,31 @@ class _CommonButtonState extends State<CommonButtonText>
                   await widget.onTap();
                   _activeButton();
                 },
-          child: Center(
-            child: _isButtonDisabled
-                ? const LoadingWidget(color: AppColors.white)
-                : Text(
-                    widget.text,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.fade,
-                    style: AppFonts.montserrat(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 150),
+              transitionBuilder: (child, anim) {
+                return FadeTransition(opacity: anim, child: child);
+              },
+              child: _isButtonDisabled
+                  ? const LoadingWidget(color: AppColors.white)
+                  : Wrap(
+                      alignment: WrapAlignment.center,
+                      children: [
+                        widget.leading ?? Container(),
+                        Text(
+                          widget.text,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.fade,
+                          style: AppFonts.montserrat(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+            ),
           ),
         ),
       ),

@@ -64,7 +64,7 @@ class _SocialLoginButtonState extends State<SocialLoginButton> {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: _isButtonDisabled
-                ? const LoadingWidget(isSocialButton: true)
+                ? const LoadingWidget()
                 : Image.asset(
                     widget.image,
                     width: 35,

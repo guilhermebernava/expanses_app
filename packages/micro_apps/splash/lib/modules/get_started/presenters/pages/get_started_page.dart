@@ -51,7 +51,6 @@ class GetStartedPage extends StatelessWidget {
                   MovingAnimation(
                     fromWhere: const Offset(-1, 0),
                     child: CommonButtonText(
-                      isCircularButton: true,
                       width: 200,
                       onTap: () async =>
                           ShowModalBottomSheetServices.showGetStarted(
