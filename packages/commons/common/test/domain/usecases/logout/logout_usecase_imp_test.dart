@@ -28,7 +28,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: Container(),
       routes: {
-        AppRoutes.signIn: (context) => Container(),
+        AppRoutes.choiceSign: (context) => Container(),
       },
     ));
     final context = tester.element(find.byType(Container));

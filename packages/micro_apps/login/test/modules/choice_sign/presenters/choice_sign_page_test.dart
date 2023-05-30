@@ -14,4 +14,6 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(ChoiceSignPage), findsOneWidget);
   });
+
+  //TODO implementar testes para tela
 }
