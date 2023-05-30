@@ -93,4 +93,29 @@ void main() {
     expect(user.isRight(), true);
     expect(user.right.displayName, "Bernava");
   });
+
+  test('It should delete an user', () async {
+    Map<String, Object> values = <String, Object>{
+      "user": '''
+{
+  "id": "123",
+  "display_name": "Guilherme",
+  "image_url": "image"
+}
+'''
+    };
+    SharedPreferences.setMockInitialValues(values);
+
+    final result = await appRepository.deleteUser();
+    expect(result.isRight(), true);
+  });
+
+  test('It should not have an error when do not have an user to delete',
+      () async {
+    Map<String, Object> values = <String, Object>{};
+    SharedPreferences.setMockInitialValues(values);
+
+    final result = await appRepository.deleteUser();
+    expect(result.isRight(), true);
+  });
 }

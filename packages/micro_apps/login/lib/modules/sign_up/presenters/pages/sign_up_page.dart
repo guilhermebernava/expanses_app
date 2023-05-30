@@ -49,9 +49,9 @@ class SignUpPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 40),
-                  child: CommonButton(
+                  child: CommonButtonText.safeButton(
                     width: size.width,
-                    onTap: () {},
+                    onTap: () async {},
                     text: "SIGN UP",
                   ),
                 )

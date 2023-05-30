@@ -1,5 +1,5 @@
 class ApiError {
-  final String? message;
+  final String message;
   final String endpoint;
   final int? statusCode;
 

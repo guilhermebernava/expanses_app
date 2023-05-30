@@ -4,11 +4,13 @@ import 'package:common/common.dart';
 class SocialLoginButtons extends StatelessWidget {
   final bool canPop;
   final Size size;
+  final GoogleAuthUsecase googleAuthUsecase;
 
   const SocialLoginButtons({
     super.key,
     required this.canPop,
     required this.size,
+    required this.googleAuthUsecase,
   });
 
   @override
@@ -38,7 +40,7 @@ class SocialLoginButtons extends StatelessWidget {
                     image: AppAssets.googleIcon,
                     size: size,
                     onTap: () async {
-                      //TODO adicionar google login
+                      await googleAuthUsecase(context);
                     },
                   ),
                 ],

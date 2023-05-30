@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:login/modules/login/presenters/widgets/social_login_buttons.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:common/common.dart';
+
+class GoogleAuthMock extends Mock implements GoogleAuthUsecase {}
 
 void main() {
   testWidgets('It should create widget', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(
-      const MaterialApp(
+      MaterialApp(
         home: SocialLoginButtons(
           canPop: false,
-          size: Size(100, 100),
+          googleAuthUsecase: GoogleAuthMock(),
+          size: const Size(100, 100),
         ),
       ),
     );
@@ -21,10 +26,11 @@ void main() {
       (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(
-      const MaterialApp(
+      MaterialApp(
         home: SocialLoginButtons(
           canPop: false,
-          size: Size(100, 100),
+          googleAuthUsecase: GoogleAuthMock(),
+          size: const Size(100, 100),
         ),
       ),
     );
@@ -36,10 +42,11 @@ void main() {
       (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(
-      const MaterialApp(
+      MaterialApp(
         home: SocialLoginButtons(
           canPop: true,
-          size: Size(100, 100),
+          googleAuthUsecase: GoogleAuthMock(),
+          size: const Size(100, 100),
         ),
       ),
     );

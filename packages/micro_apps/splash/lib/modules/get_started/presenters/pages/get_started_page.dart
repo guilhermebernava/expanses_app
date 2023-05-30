@@ -45,8 +45,10 @@ class GetStartedPage extends StatelessWidget {
                   ),
                   MovingAnimation(
                     fromWhere: const Offset(-1, 0),
-                    child: CommonButton(
-                      onTap: () => ShowModalBottomSheetServices.showGetStarted(
+                    child: CommonButtonText(
+                      width: 200,
+                      onTap: () async =>
+                          ShowModalBottomSheetServices.showGetStarted(
                         context,
                         size,
                       ),

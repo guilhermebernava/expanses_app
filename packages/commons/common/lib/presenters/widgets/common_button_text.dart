@@ -1,34 +1,34 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
-class CommonButton extends StatefulWidget {
+class CommonButtonText extends StatefulWidget {
   final double width;
   final Future<void> Function() onTap;
+  final String text;
   final bool isReverseColor;
-  final Widget child;
   final bool _isSafeButton;
 
-  const CommonButton({
+  const CommonButtonText({
     super.key,
     required this.width,
     required this.onTap,
-    required this.child,
+    required this.text,
     this.isReverseColor = false,
   }) : _isSafeButton = false;
 
-  const CommonButton.safeButton({
+  const CommonButtonText.safeButton({
     super.key,
     required this.width,
     required this.onTap,
-    required this.child,
+    required this.text,
     this.isReverseColor = false,
   }) : _isSafeButton = true;
 
   @override
-  State<CommonButton> createState() => _CommonButtonState();
+  State<CommonButtonText> createState() => _CommonButtonState();
 }
 
-class _CommonButtonState extends State<CommonButton>
+class _CommonButtonState extends State<CommonButtonText>
     with TickerProviderStateMixin {
   late final AnimationController? _animationController;
   late final Animation<double>? _widthAnimation;
@@ -77,6 +77,7 @@ class _CommonButtonState extends State<CommonButton>
 
   Widget _notSafeButton() {
     return Container(
+      key: ValueKey(widget.text),
       height: 70,
       decoration: BoxDecoration(
         border: widget.isReverseColor
@@ -95,7 +96,17 @@ class _CommonButtonState extends State<CommonButton>
           splashColor: AppColors.white.withOpacity(0.1),
           enableFeedback: false,
           onTap: () async => await widget.onTap(),
-          child: Center(child: widget.child),
+          child: Center(
+            child: Text(
+              widget.text,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.fade,
+              style: AppFonts.montserrat(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -105,6 +116,7 @@ class _CommonButtonState extends State<CommonButton>
     return AnimatedBuilder(
       animation: _widthAnimation!,
       builder: (_, child) => Container(
+        key: ValueKey(widget.text),
         width: _widthAnimation!.value,
         height: 70,
         decoration: BoxDecoration(
@@ -138,7 +150,15 @@ class _CommonButtonState extends State<CommonButton>
                 ? const CircularProgressIndicator(
                     color: AppColors.white,
                   )
-                : widget.child,
+                : Text(
+                    widget.text,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.fade,
+                    style: AppFonts.montserrat(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
           ),
         ),
       ),

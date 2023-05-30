@@ -1,4 +1,5 @@
 import 'package:common/common.dart';
+import 'package:common_dependencies/common_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login/modules/login/presenters/widgets/social_login_buttons.dart';
@@ -41,14 +42,15 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              CommonButton(
+              CommonButtonText.safeButton(
                 width: size.width,
-                onTap: () {},
+                onTap: () async {},
                 text: "SIGN IN",
               ),
               SocialLoginButtons(
                 canPop: canPop,
                 size: size,
+                googleAuthUsecase: GetIt.instance.get(),
               )
             ],
           ),

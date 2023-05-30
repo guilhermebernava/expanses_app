@@ -51,7 +51,7 @@ class DioApiDatasourceImp implements ApiDatasource {
       return Tuple.left(
         ApiError(
           endpoint: endpoint,
-          message: response.statusMessage,
+          message: response.statusMessage ?? "UNKNOWNN ERROR",
           statusCode: response.statusCode,
         ),
       );
@@ -97,7 +97,7 @@ class DioApiDatasourceImp implements ApiDatasource {
       return Tuple.left(
         ApiError(
           endpoint: endpoint,
-          message: response.statusMessage,
+          message: response.statusMessage ?? "UNKNOWNN ERROR",
           statusCode: response.statusCode,
         ),
       );

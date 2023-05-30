@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:common/common.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:splash/modules/get_started/domain/usecases/google_auth/google_auth_usecase_imp.dart';
 
 class AuthServicesMock extends Mock implements AuthDatasource {}
 
@@ -20,7 +19,7 @@ void main() {
   final repostioryMock = AppRepositoryMock();
 
   final usecase = GoogleAuthUsecaseImp(
-    authSerivces: authMock,
+    authDatasource: authMock,
     appRepository: repostioryMock,
   );
 

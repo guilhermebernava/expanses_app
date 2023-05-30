@@ -7,10 +7,6 @@ class SplashController {
   final FirstTimeAppUseCase firstTimeAppUseCase;
   final GetUserUsecase getUserUsecase;
 
-  final _login = "/login";
-  final _getStarted = "/get-started";
-  final _home = "/home";
-
   SplashController({
     required this.firstTimeAppUseCase,
     required this.getUserUsecase,
@@ -26,20 +22,21 @@ class SplashController {
     }
 
     if (isFirstTime.right && context.mounted) {
-      Navigator.of(context).pushReplacementNamed(_getStarted);
+      Navigator.of(context).pushReplacementNamed(AppRoutes.getStarted);
       return;
     }
 
     final existUser = await getUserUsecase();
 
     if (existUser == null && context.mounted) {
-      Navigator.of(context).pushReplacementNamed(_home);
+      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+      return;
     }
 
     debugPrint("EXIST USER ERROR: $existUser");
 
     if (context.mounted) {
-      Navigator.of(context).pushReplacementNamed(_login);
+      Navigator.of(context).pushReplacementNamed(AppRoutes.getStarted);
       return;
     }
   }

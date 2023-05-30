@@ -1,5 +1,6 @@
 import 'package:common_dependencies/common_dependencies.dart';
-import 'package:flutter/material.dart';
+import 'package:common/common.dart';
+import 'package:home/presenters/pages/home_page.dart';
 
 class HomeResolver implements MicroApp {
   @override
@@ -10,8 +11,8 @@ class HomeResolver implements MicroApp {
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-        "/home": (context, args) => const Scaffold(
-              body: Center(child: Text("HOME")),
+        AppRoutes.home: (context, args) => HomePage(
+              logoutUsecase: GetIt.instance.get(),
             ),
       };
 }

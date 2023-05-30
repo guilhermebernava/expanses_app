@@ -5,9 +5,19 @@ import 'package:common_dependencies/common_dependencies.dart';
 
 class FirebaseAuthDatasourceImp implements AuthDatasource {
   @override
-  Future<Tuple<ApiError, void>> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<Tuple<ApiError, void>> logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      return Tuple.right(null);
+    } catch (e) {
+      return Tuple.left(
+        ApiError(
+          endpoint: "logout_firebase",
+          message: e.toString(),
+          statusCode: 500,
+        ),
+      );
+    }
   }
 
   @override

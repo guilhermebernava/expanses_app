@@ -7,4 +7,5 @@ abstract class AppRepository {
   Future<Tuple<SharedError, void>> registerUser(AppUser user);
   Future<Tuple<SharedError, void>> firstTimeApp();
   Future<Tuple<SharedError, bool>> isFirstTime();
+  Future<Tuple<SharedError, void>> deleteUser();
 }

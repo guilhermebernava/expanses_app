@@ -85,4 +85,32 @@ class AppRepositorySharedImp implements AppRepository {
       );
     }
   }
+
+  @override
+  Future<Tuple<SharedError, void>> deleteUser() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final existUser = await getUser();
+
+      if (existUser.isLeft()) {
+        return Tuple.right(null);
+      }
+
+      final deleted = await prefs.remove(_user);
+
+      if (deleted) {
+        return Tuple.right(null);
+      }
+
+      return Tuple.left(SharedError(
+        title: "Error in removing USER from SharedPreferences",
+      ));
+    } catch (e) {
+      return Tuple.left(
+        SharedError(
+          title: e.toString(),
+        ),
+      );
+    }
+  }
 }

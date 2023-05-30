@@ -7,44 +7,44 @@ void main() {
     TestWidgetsFlutterBinding.ensureInitialized();
 
     await tester.pumpWidget(MaterialApp(
-      home: CommonButton(
+      home: CommonButtonText(
         width: double.infinity,
         onTap: () async {},
-        child: const Text("test"),
+        text: "test",
       ),
     ));
 
-    expect(find.text("test"), findsOneWidget);
+    expect(find.byKey(const ValueKey("test")), findsOneWidget);
   });
 
-  testWidgets('It should create safe button', (tester) async {
+  testWidgets('It should create a safe button', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
 
     await tester.pumpWidget(MaterialApp(
-      home: CommonButton.safeButton(
+      home: CommonButtonText.safeButton(
         width: double.infinity,
         onTap: () async {},
-        child: const Text("test"),
+        text: "test",
       ),
     ));
 
-    expect(find.text("test"), findsOneWidget);
+    expect(find.byKey(const ValueKey("test")), findsOneWidget);
   });
 
   testWidgets('It should onTap works', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     bool executed = false;
     await tester.pumpWidget(MaterialApp(
-      home: CommonButton(
+      home: CommonButtonText(
         width: double.infinity,
         onTap: () async {
           executed = true;
         },
-        child: const Text("test"),
+        text: "test",
       ),
     ));
 
-    final button = find.text("test");
+    final button = find.byKey(const ValueKey("test"));
     await tester.tap(button);
     await tester.pumpAndSettle(const Duration(seconds: 5));
     await tester.pump();
@@ -54,10 +54,10 @@ void main() {
   testWidgets('It should be primary color', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(MaterialApp(
-      home: CommonButton(
+      home: CommonButtonText(
         width: double.infinity,
         onTap: () async {},
-        child: const Text("test"),
+        text: "test",
       ),
     ));
 
@@ -74,11 +74,11 @@ void main() {
   testWidgets('It should be transparente', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(MaterialApp(
-      home: CommonButton(
+      home: CommonButtonText(
         width: double.infinity,
         onTap: () async {},
+        text: "test",
         isReverseColor: true,
-        child: const Text("test"),
       ),
     ));
 
@@ -95,10 +95,10 @@ void main() {
   // testWidgets('It should onTap change to LOADING', (tester) async {
   //   TestWidgetsFlutterBinding.ensureInitialized();
   //   await tester.pumpWidget(MaterialApp(
-  //     home: CommonButton(
+  //     home: CommonButtonText(
   //       width: double.infinity,
   //       onTap: () async {},
-  //      child: const Text("test"),
+  //       text: "test",
   //     ),
   //   ));
 

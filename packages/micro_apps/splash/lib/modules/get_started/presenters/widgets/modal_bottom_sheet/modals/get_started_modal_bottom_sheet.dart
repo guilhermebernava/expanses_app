@@ -1,6 +1,5 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:splash/modules/get_started/domain/usecases/google_auth/google_auth_usecase.dart';
 
 class GetStartedModalBottomSheet extends StatelessWidget {
   final Size size;
@@ -44,19 +43,19 @@ class GetStartedModalBottomSheet extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CommonButton(
+                  CommonButtonText(
                     width: size.width,
-                    onTap: () {
+                    onTap: () async {
                       Navigator.pushNamed(context, "/sign-up");
                     },
                     text: "Sign Up",
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 25),
-                    child: CommonButton(
+                    child: CommonButtonText(
                       width: size.width,
-                      onTap: () {
-                        Navigator.pushNamed(context, "/login");
+                      onTap: () async {
+                        Navigator.pushNamed(context, AppRoutes.signIn);
                       },
                       isReverseColor: true,
                       text: "Sign In",
@@ -82,9 +81,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                         color: AppColors.white,
                         image: AppAssets.googleIcon,
                         size: size,
-                        onTap: () async {
-                          await googleAuthUsecase(context);
-                        },
+                        onTap: () async => await googleAuthUsecase(context),
                       ),
                     ],
                   ),

@@ -1,7 +1,4 @@
-import 'package:common/datasources/auth/auth.dart';
-import 'package:common/datasources/auth/firebase/firabase_auth_datasource_imp.dart';
-import 'package:common/datasources/databases/app_database/app_repository.dart';
-import 'package:common/datasources/databases/app_database/shared_preferences/app_repository_shared_imp.dart';
+import 'package:common/common.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 class CommonInjector {
@@ -14,6 +11,20 @@ class CommonInjector {
 
     getIt.registerLazySingleton<AuthDatasource>(
       () => FirebaseAuthDatasourceImp(),
+    );
+
+    getIt.registerLazySingleton<GoogleAuthUsecase>(
+      () => GoogleAuthUsecaseImp(
+        authDatasource: getIt.get(),
+        appRepository: getIt.get(),
+      ),
+    );
+
+    getIt.registerLazySingleton<LogoutUsecase>(
+      () => LogoutUsecaseImp(
+        authDatasource: getIt.get(),
+        appRepository: getIt.get(),
+      ),
     );
   }
 }

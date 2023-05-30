@@ -29,7 +29,7 @@ class App extends StatelessWidget with BaseApp {
       title: 'ExpansesApp',
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      initialRoute: "/splash",
+      initialRoute: AppRoutes.splash,
       onGenerateRoute: super.generateRoute,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
