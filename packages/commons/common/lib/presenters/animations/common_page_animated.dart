@@ -7,6 +7,7 @@ class CommonPageAnimated extends StatelessWidget {
   final Size size;
   final Widget body;
   final bool canPopUp;
+  final double topPadding;
   final EdgeInsets? padding;
 
   const CommonPageAnimated({
@@ -14,6 +15,7 @@ class CommonPageAnimated extends StatelessWidget {
     required this.body,
     required this.size,
     this.padding,
+    this.topPadding = 70,
     this.canPopUp = true,
   });
 
@@ -21,6 +23,7 @@ class CommonPageAnimated extends StatelessWidget {
   Widget build(BuildContext context) {
     return CommonPageStructure(
       canPopUp: canPopUp,
+      topPadding: topPadding,
       size: size,
       padding: padding ?? const EdgeInsets.all(20),
       container: MovingAnimation(

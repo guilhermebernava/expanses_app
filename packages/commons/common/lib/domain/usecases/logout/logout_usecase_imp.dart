@@ -28,7 +28,7 @@ class LogoutUsecaseImp implements LogoutUsecase {
     }
     if (context.mounted) {
       Navigator.of(context)
-          .pushNamedAndRemoveUntil(AppRoutes.signIn, (_) => false);
+          .pushNamedAndRemoveUntil(AppRoutes.choiceSign, (_) => false);
     }
   }
 }

@@ -17,6 +17,7 @@ export 'domain/usecases/logout/logout_usecase_imp.dart';
 
 //INFRA
 export 'infra/services/show_error_services.dart';
+export 'infra/services/show_modal_bottom_sheet_services.dart';
 
 //UTILS
 export 'utils/tuple.dart';
@@ -37,6 +38,8 @@ export 'presenters/widgets/social_login_button.dart';
 export 'presenters/widgets/or_widget.dart';
 export 'presenters/widgets/common_button_text.dart';
 export 'presenters/widgets/common_text_button.dart';
+export 'presenters/modals/get_started_modal_bottom_sheet.dart';
+export 'presenters/modals/sign_in_modal_bottom_sheet.dart';
 
 //ANIMATIONS
 export 'presenters/animations/moving_animation.dart';

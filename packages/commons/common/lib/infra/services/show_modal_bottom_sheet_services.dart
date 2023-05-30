@@ -1,7 +1,5 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:splash/modules/get_started/presenters/widgets/modal_bottom_sheet/modals/get_started_modal_bottom_sheet.dart';
-import 'package:splash/modules/get_started/presenters/widgets/modal_bottom_sheet/modals/sign_in_modal_bottom_sheet.dart';
 
 class ShowModalBottomSheetServices {
   static void showGetStarted(

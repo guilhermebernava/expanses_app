@@ -1,6 +1,5 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:splash/modules/get_started/services/show_modal_bottom_sheet_services.dart';
 
 class GetStartedModalBottomSheet extends StatelessWidget {
   final Size size;

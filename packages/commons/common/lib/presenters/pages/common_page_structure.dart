@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class CommonPageStructure extends StatelessWidget {
   final Size size;
+  final double topPadding;
   final Widget? body;
   final EdgeInsets padding;
   final Widget? container;
@@ -13,6 +14,7 @@ class CommonPageStructure extends StatelessWidget {
     required this.size,
     this.canPopUp = true,
     this.body,
+    this.topPadding = 70,
     this.container,
     this.padding = const EdgeInsets.all(20),
   }) {
@@ -41,12 +43,9 @@ class CommonPageStructure extends StatelessWidget {
               children: [
                 canPopUp
                     ? const TransparentAppBarWidget()
-                    : const Padding(
+                    : Padding(
                         padding: EdgeInsets.only(
-                          left: 10,
-                          top: 70,
-                          bottom: 15,
-                        ),
+                            left: 10, top: topPadding, bottom: 15),
                       ),
                 Expanded(
                   child: container ??

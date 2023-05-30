@@ -1,6 +1,9 @@
 import 'package:common/common.dart';
 import 'package:flutter/widgets.dart';
 
+//STATELESS -- sem estado
+//STATEFULL  -- com estado
+
 class LogoWidget extends StatelessWidget {
   const LogoWidget({super.key});
 

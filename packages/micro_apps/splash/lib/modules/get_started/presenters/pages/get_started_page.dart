@@ -4,7 +4,6 @@ import 'package:splash/modules/get_started/presenters/pages/control_expanses_pag
 import 'package:splash/modules/get_started/presenters/pages/investiment_page.dart';
 import 'package:splash/modules/get_started/presenters/pages/keep_page.dart';
 import 'package:splash/modules/get_started/presenters/widgets/carrousel_widget.dart';
-import 'package:splash/modules/get_started/services/show_modal_bottom_sheet_services.dart';
 
 class GetStartedPage extends StatelessWidget {
   final GoogleAuthUsecase googleAuthUsecase;
