@@ -1,10 +1,10 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
-class SocialLoginButton extends StatelessWidget {
+class SocialLoginButton extends StatefulWidget {
   final Size size;
   final String image;
-  final VoidCallback onTap;
+  final Future<void> Function() onTap;
   final Color color;
 
   const SocialLoginButton({
@@ -16,6 +16,31 @@ class SocialLoginButton extends StatelessWidget {
   });
 
   @override
+  State<SocialLoginButton> createState() => _SocialLoginButtonState();
+}
+
+class _SocialLoginButtonState extends State<SocialLoginButton> {
+  bool _isButtonDisabled = false;
+
+  void _activeButton() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      if (mounted) {
+        setState(() {
+          _isButtonDisabled = false;
+        });
+      }
+    });
+  }
+
+  void _desactiveButton() {
+    if (!_isButtonDisabled && mounted) {
+      setState(() {
+        _isButtonDisabled = true;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
@@ -23,16 +48,22 @@ class SocialLoginButton extends StatelessWidget {
       ),
       child: Material(
         borderRadius: BorderRadius.circular(1000),
-        color: color,
+        color: widget.color,
         child: InkWell(
           enableFeedback: false,
           splashColor: AppColors.white.withOpacity(0.1),
           borderRadius: BorderRadius.circular(1000),
-          onTap: onTap,
+          onTap: _isButtonDisabled
+              ? () {}
+              : () async {
+                  _desactiveButton();
+                  await widget.onTap();
+                  _activeButton();
+                },
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Image.asset(
-              image,
+              widget.image,
               width: 50,
               height: 50,
               errorBuilder: (context, error, stackTrace) {

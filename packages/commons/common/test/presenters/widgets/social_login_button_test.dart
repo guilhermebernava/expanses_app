@@ -10,7 +10,7 @@ void main() {
         home: SocialLoginButton(
           image: AppAssets.githubIcon,
           size: const Size(100, 100),
-          onTap: () {},
+          onTap: () async {},
           color: AppColors.black,
         ),
       ),
@@ -28,7 +28,7 @@ void main() {
         home: SocialLoginButton(
           image: AppAssets.githubIcon,
           size: const Size(100, 100),
-          onTap: () {
+          onTap: () async {
             isClicked = true;
           },
           color: AppColors.black,
