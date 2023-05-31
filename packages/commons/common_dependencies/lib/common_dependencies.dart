@@ -14,3 +14,4 @@ export 'package:flutter_dotenv/flutter_dotenv.dart';
 export 'package:micro_core/micro_core.dart';
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:google_sign_in/google_sign_in.dart';
+export 'package:flutter_secure_storage/flutter_secure_storage.dart';

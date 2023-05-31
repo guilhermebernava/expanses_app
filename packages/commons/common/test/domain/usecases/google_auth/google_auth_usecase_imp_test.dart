@@ -71,7 +71,8 @@ void main() {
         .thenAnswer((invocation) async => Tuple.right(user));
 
     when(() => repostioryMock.registerUser(user)).thenAnswer(
-        (invocation) async => Tuple.left(SharedError(title: 'shared_error')));
+        (invocation) async =>
+            Tuple.left(RepositoryError(title: 'shared_error')));
 
     await usecase.call(context);
     await tester.pumpAndSettle();

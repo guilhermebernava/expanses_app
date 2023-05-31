@@ -6,7 +6,7 @@ export 'datasources/api/dio/dio_api_datasource_imp.dart';
 export 'datasources/databases/app_database/app_repository.dart';
 export 'datasources/databases/app_database/shared_preferences/app_repository_shared_imp.dart';
 export 'datasources/auth/firebase/firabase_auth_datasource_imp.dart';
-export 'datasources/errors/shared_error.dart';
+export 'datasources/errors/repository_error.dart';
 export 'datasources/auth/auth.dart';
 
 //DOMAIN

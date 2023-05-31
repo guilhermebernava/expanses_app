@@ -22,7 +22,7 @@ class FirstTimeAppUsecaseImp implements FirstTimeAppUseCase {
   }
 
   Future<Tuple<String, bool>> _registerFirstTime() async {
-    final isSaved = await _appRepository.firstTimeApp();
+    final isSaved = await _appRepository.isFirstTime();
 
     if (isSaved.isLeft()) {
       return Tuple.left(isSaved.left.title);

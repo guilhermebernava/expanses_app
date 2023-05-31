@@ -31,9 +31,6 @@ void main() {
     Map<String, Object> values = <String, Object>{};
     SharedPreferences.setMockInitialValues(values);
 
-    final result = await appRepository.firstTimeApp();
-    expect(result.isRight(), true);
-
     final response = await appRepository.isFirstTime();
     expect(response.isRight(), true);
     expect(response.right, false);

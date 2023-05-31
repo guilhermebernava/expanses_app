@@ -67,8 +67,8 @@ void main() {
     when(() => authMock.logout())
         .thenAnswer((invocation) async => Tuple.right(null));
 
-    when(() => repostioryMock.deleteUser()).thenAnswer(
-        (invocation) async => Tuple.left(SharedError(title: 'shared_error')));
+    when(() => repostioryMock.deleteUser()).thenAnswer((invocation) async =>
+        Tuple.left(RepositoryError(title: 'shared_error')));
 
     await usecase.call(context);
     await tester.pumpAndSettle();

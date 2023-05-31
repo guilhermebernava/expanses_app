@@ -1,7 +1,7 @@
-class SharedError {
+class RepositoryError {
   final String title;
 
-  SharedError({
+  RepositoryError({
     required this.title,
   });
 }
