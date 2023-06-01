@@ -23,6 +23,13 @@ class CommonInjector {
       ),
     );
 
+    getIt.registerLazySingleton<SignUpUsecase>(
+      () => SignUpUsecaseImp(
+        authDatasource: getIt.get(),
+        appRepository: getIt.get(),
+      ),
+    );
+
     getIt.registerLazySingleton<EmailAuthUsecase>(
       () => EmailAuthUsecaseImp(
         authDatasource: getIt.get(),

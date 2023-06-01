@@ -16,8 +16,8 @@ class ChoiceSignPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     const double borderRadius = 100;
 
-    return Scaffold(
-      backgroundColor: AppColors.mediumBlue,
+    return CommonPage(
+      padding: EdgeInsets.zero,
       body: Stack(
         children: [
           MovingAnimation(

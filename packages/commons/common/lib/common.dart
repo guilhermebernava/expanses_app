@@ -16,6 +16,8 @@ export 'domain/usecases/logout/logout_usecase.dart';
 export 'domain/usecases/logout/logout_usecase_imp.dart';
 export 'domain/usecases/email_auth/email_auth.dart';
 export 'domain/usecases/email_auth/email_auth_imp.dart';
+export 'domain/usecases/sign_up/sign_up_usecase.dart';
+export 'domain/usecases/sign_up/sign_up_usecase_imp.dart';
 export 'domain/entities/user.dart';
 export 'domain/errors/generic_error.dart';
 
@@ -23,6 +25,7 @@ export 'domain/errors/generic_error.dart';
 export 'infra/services/show_error_services.dart';
 export 'infra/services/show_modal_bottom_sheet_services.dart';
 export 'infra/dtos/login_dto.dart';
+export 'infra/dtos/sign_up_dto.dart';
 
 //UTILS
 export 'utils/tuple.dart';
@@ -48,6 +51,8 @@ export 'presenters/widgets/common_button_text.dart';
 export 'presenters/widgets/common_text_button.dart';
 export 'presenters/modals/get_started_modal_bottom_sheet.dart';
 export 'presenters/modals/sign_in_modal_bottom_sheet.dart';
+export 'presenters/widgets/common_form.dart';
+export 'presenters/pages/common_page.dart';
 
 //ANIMATIONS
 export 'presenters/animations/moving_animation.dart';

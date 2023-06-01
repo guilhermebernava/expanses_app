@@ -4,13 +4,21 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:login/modules/sign_up/presenters/controllers/sign_up_page_controller.dart';
 import 'package:login/modules/sign_up/presenters/pages/sign_up_page.dart';
 import 'package:login/modules/sign_up/presenters/widgets/sign_up_logo.dart';
+import 'package:mocktail/mocktail.dart';
+
+class SignUpMock extends Mock implements SignUpUsecase {}
 
 void main() {
+  final signUpMock = SignUpMock();
+  registerFallbackValue(SignUpDto(email: "", password: ""));
+
   testWidgets('It should create the widget', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(MaterialApp(
         home: SignUpPage(
-      controller: SignUpPageController(),
+      controller: SignUpPageController(
+        signUpUsecase: signUpMock,
+      ),
     )));
     await tester.pumpAndSettle();
     expect(find.byType(SignUpPage), findsOneWidget);
@@ -21,7 +29,9 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: SignUpPage(
-          controller: SignUpPageController(),
+          controller: SignUpPageController(
+            signUpUsecase: signUpMock,
+          ),
         ),
       ),
     );
@@ -37,7 +47,9 @@ void main() {
     final mockObserver = MockNavigatorObserver();
     await tester.pumpWidget(MaterialApp(
       home: SignUpPage(
-        controller: SignUpPageController(),
+        controller: SignUpPageController(
+          signUpUsecase: signUpMock,
+        ),
       ),
       navigatorObservers: [mockObserver],
     ));
@@ -49,21 +61,27 @@ void main() {
   });
 
   testWidgets('It should navigate to HOME', (tester) async {
-    //TODO atualizar teste com USECASE
+    final controller = SignUpPageController(
+      signUpUsecase: signUpMock,
+    );
+    controller.model.email.set("a@a.com");
+    controller.model.password.set("asdf1904");
+    controller.model.confirmPassword.set("asdf190");
+
     await tester.pumpWidget(MaterialApp(
-      home: SignUpPage(
-        controller: SignUpPageController(),
-      ),
+      home: SignUpPage(controller: controller),
       routes: {
         AppRoutes.home: (context) => Container(),
       },
     ));
     await tester.pumpAndSettle();
+    when(() => signUpMock(any())).thenAnswer(
+        (invocation) async => Tuple.right(AppUser(displayName: "", id: "")));
     final button = find.byKey(const ValueKey("SIGN_UP"));
     await tester.ensureVisible(button);
     await tester.tap(button);
+    await tester.pumpAndSettle(const Duration(seconds: 10));
 
-    await tester.pumpAndSettle(const Duration(seconds: 5));
     expect(find.byType(Container), findsOneWidget);
   });
 }

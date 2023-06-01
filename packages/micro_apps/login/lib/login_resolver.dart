@@ -23,7 +23,9 @@ class LoginResolver implements MicroApp {
               ),
             ),
         AppRoutes.signUp: (context, args) => SignUpPage(
-              controller: SignUpPageController(),
+              controller: SignUpPageController(
+                signUpUsecase: GetIt.instance.get(),
+              ),
             ),
       };
 

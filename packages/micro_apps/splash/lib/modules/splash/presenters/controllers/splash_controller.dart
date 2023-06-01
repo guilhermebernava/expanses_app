@@ -42,7 +42,7 @@ class SplashController {
 
     if (context.mounted) {
       Navigator.of(context)
-          .pushNamedAndRemoveUntil(AppRoutes.choiceSign, (_) => false);
+          .pushNamedAndRemoveUntil(AppRoutes.getStarted, (_) => false);
       return;
     }
   }
