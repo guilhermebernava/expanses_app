@@ -1,3 +1,3 @@
-abstract class CheckInternet {
+abstract interface class CheckInternet {
   Future<bool> hasInternet();
 }

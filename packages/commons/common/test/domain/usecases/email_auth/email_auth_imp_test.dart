@@ -15,45 +15,47 @@ void main() {
   });
   final authMock = AuthServicesMock();
   final repostioryMock = AppRepositoryMock();
+  final correct = LoginDto(email: "a@a.com", password: "123");
+  final error = LoginDto(email: "", password: "");
 
-  final usecase = GoogleAuthUsecaseImp(
+  final usecase = EmailAuthUsecaseImp(
     authDatasource: authMock,
     appRepository: repostioryMock,
   );
 
-  test('It should have success login in', () async {
+  test('It should  have success login in', () async {
     final user = AppUser(displayName: "", id: "");
-    when(() => authMock.loginGoogle())
+    when(() => authMock.loginEmail(correct))
         .thenAnswer((invocation) async => Tuple.right(user));
 
     when(() => repostioryMock.registerUser(user))
         .thenAnswer((invocation) async => Tuple.right(null));
 
-    final result = await usecase.call();
-    expect(result.isRight(), true);
-    expect(result.right, isA<AppUser>());
+    final response = await usecase.call(correct);
+    expect(response.isRight(), true);
+    expect(response.right, isA<AppUser>());
   });
 
-  test('It should show error when GOOGLE has an ERROR', () async {
-    when(() => authMock.loginGoogle()).thenAnswer((invocation) async =>
+  test('It should show  error ', () async {
+    when(() => authMock.loginEmail(error)).thenAnswer((invocation) async =>
         Tuple.left(
             ApiError(endpoint: "", message: "google_login", statusCode: 100)));
 
-    final result = await usecase.call();
+    final result = await usecase.call(error);
     expect(result.isLeft(), true);
   });
 
-  test('It should show error when APP_REPOSITORY has an ERROR', () async {
+  test('It should show  error when APP_REPOSITORY has an ERROR', () async {
     final user = AppUser(displayName: "", id: "");
 
-    when(() => authMock.loginGoogle())
+    when(() => authMock.loginEmail(correct))
         .thenAnswer((invocation) async => Tuple.right(user));
 
     when(() => repostioryMock.registerUser(user)).thenAnswer(
         (invocation) async =>
             Tuple.left(RepositoryError(title: 'shared_error')));
 
-    final result = await usecase.call();
+    final result = await usecase.call(correct);
     expect(result.isLeft(), true);
   });
 }

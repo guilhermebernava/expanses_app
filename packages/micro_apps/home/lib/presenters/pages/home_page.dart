@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: CommonButtonText(
           width: 150,
-          onTap: () async => await logoutUsecase(context),
+          onTap: () async => await logoutUsecase(),
           text: "LOGOUT",
         ),
       ),

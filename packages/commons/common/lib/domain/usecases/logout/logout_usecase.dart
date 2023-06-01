@@ -1,5 +1,6 @@
-import 'package:flutter/widgets.dart';
+import 'package:common/common.dart';
+import 'package:common/domain/errors/generic_error.dart';
 
-abstract class LogoutUsecase {
-  Future<void> call(BuildContext context);
+abstract interface class LogoutUsecase {
+  Future<Tuple<GenericError, void>> call();
 }

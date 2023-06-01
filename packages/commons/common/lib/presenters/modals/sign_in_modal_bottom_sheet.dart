@@ -76,7 +76,7 @@ class SignInModalBottomSheet extends StatelessWidget {
                       ),
                     ),
                     width: size.width,
-                    onTap: () async => await googleAuthUsecase(context),
+                    onTap: () async => await googleAuthUsecase(),
                     text: "Sign In with Google",
                   ),
                   CommonButtonText.safeButton(

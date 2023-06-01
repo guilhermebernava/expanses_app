@@ -1,5 +1,5 @@
 import 'package:common/common.dart';
-import 'package:flutter/widgets.dart';
+import 'package:common/domain/errors/generic_error.dart';
 
 class LogoutUsecaseImp implements LogoutUsecase {
   final AuthDatasource _authDatasource;
@@ -12,23 +12,18 @@ class LogoutUsecaseImp implements LogoutUsecase {
         _appRepository = appRepository;
 
   @override
-  Future<void> call(BuildContext context) async {
+  Future<Tuple<GenericError, void>> call() async {
     final result = await _authDatasource.logout();
 
-    if (result.isLeft() && context.mounted) {
-      ShowErrorServices.showError(context, result.left.message);
-      return;
+    if (result.isLeft()) {
+      return Tuple.left(GenericError(message: result.left.message));
     }
 
     final deleted = await _appRepository.deleteUser();
 
-    if (deleted.isLeft() && context.mounted) {
-      ShowErrorServices.showError(context, deleted.left.title);
-      return;
+    if (deleted.isLeft()) {
+      return Tuple.left(GenericError(message: deleted.left.title));
     }
-    if (context.mounted) {
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil(AppRoutes.choiceSign, (_) => false);
-    }
+    return Tuple.right(null);
   }
 }

@@ -6,7 +6,6 @@ import 'package:common/utils/tuple.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 class AppRepositorySharedImp implements AppRepository {
-  //TODO entrypitar dados do usuario guardados no app
   final String _firstTime = "first-time";
   final String _user = "user";
 

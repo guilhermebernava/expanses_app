@@ -1,3 +1,3 @@
-abstract class GetUserUsecase {
+abstract interface class GetUserUsecase {
   Future<String?> call();
 }

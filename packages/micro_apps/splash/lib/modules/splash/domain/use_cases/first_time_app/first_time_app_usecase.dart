@@ -1,5 +1,5 @@
 import 'package:common/common.dart';
 
-abstract class FirstTimeAppUseCase {
+abstract interface class FirstTimeAppUseCase {
   Future<Tuple<String, bool>> isFirstTime();
 }

@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:common/common.dart';
+import 'package:common/domain/errors/generic_error.dart';
 
-abstract class GoogleAuthUsecase {
-  Future<void> call(BuildContext context);
+abstract interface class GoogleAuthUsecase {
+  Future<Tuple<GenericError, AppUser>> call();
 }

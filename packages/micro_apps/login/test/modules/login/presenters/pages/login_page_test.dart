@@ -1,16 +1,51 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:login/modules/login/presenters/controllers/login_page_controller.dart';
 import 'package:login/modules/login/presenters/pages/login_page.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:common_dependencies/common_dependencies.dart';
 
-class GoogleMock extends Mock implements GoogleAuthUsecase {}
+class AuthServicesMock extends Mock implements AuthDatasource {}
+
+class AppRepositoryMock extends Mock implements AppRepository {}
+
+class EmailAuthMock extends Mock implements EmailAuthUsecase {}
 
 void main() {
+  FlutterSecureStorage.setMockInitialValues({
+    "user": '''
+{
+  "id": "123",
+  "display_name": "Guilherme",
+  "image_url": "image"
+}
+'''
+  });
+  final authMock = AuthServicesMock();
+  final repostioryMock = AppRepositoryMock();
+
+  setUpAll(() {
+    registerFallbackValue(LoginDto(email: "a@a.com", password: "123"));
+    registerFallbackValue(AppUser(displayName: "", id: ""));
+    when(() => authMock.loginEmail(any()))
+        .thenAnswer((invocation) async => Tuple.right(any()));
+
+    when(() => repostioryMock.registerUser(any()))
+        .thenAnswer((invocation) async => Tuple.right(null));
+  });
+
   testWidgets('It should create the widget', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(
-        MaterialApp(home: LoginPage(googleAuthUsecase: GoogleMock())));
+      MaterialApp(
+        home: LoginPage(
+          controller: LoginPageController(
+            emailAuthUsecase: EmailAuthMock(),
+          ),
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
     expect(find.byType(LoginPage), findsOneWidget);
   });
@@ -18,7 +53,14 @@ void main() {
   testWidgets('It should find the widgets', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(
-        MaterialApp(home: LoginPage(googleAuthUsecase: GoogleMock())));
+      MaterialApp(
+        home: LoginPage(
+          controller: LoginPageController(
+            emailAuthUsecase: EmailAuthMock(),
+          ),
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
 
     expect(find.byType(Form), findsOneWidget);
@@ -32,7 +74,11 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: const Scaffold(),
       routes: {
-        AppRoutes.signIn: (_) => LoginPage(googleAuthUsecase: GoogleMock()),
+        AppRoutes.signIn: (_) => LoginPage(
+              controller: LoginPageController(
+                emailAuthUsecase: EmailAuthMock(),
+              ),
+            ),
       },
       navigatorObservers: [mockObserver],
     ));
@@ -45,17 +91,4 @@ void main() {
     await tester.pump();
     expect(mockObserver.poppedRoutes.length, 1);
   });
-
-  //TODO criar teste para validar próxima tela
-  // testWidgets('It should check if button is working', (tester) async {
-  //   final mockObserver = MockNavigatorObserver();
-  //   await tester.pumpWidget(MaterialApp(
-  //     home: const LoginPage(),
-  //     navigatorObservers: [mockObserver],
-  //   ));
-  //   await tester.pumpAndSettle();
-  //   final button = find.byType(CommonButton);
-
-  //   await tester.tap(button);
-  // });
 }

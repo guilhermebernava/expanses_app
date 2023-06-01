@@ -108,6 +108,10 @@ class _LoginInputState extends State<CommonInput> {
                 ),
                 borderRadius: BorderRadius.circular(_borderRadius),
               ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(width: 2, color: Colors.red),
+                borderRadius: BorderRadius.circular(_borderRadius),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(width: 2, color: AppColors.black),
                 borderRadius: BorderRadius.circular(_borderRadius),

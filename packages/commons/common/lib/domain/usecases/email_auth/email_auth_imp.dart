@@ -1,19 +1,19 @@
 import 'package:common/common.dart';
 import 'package:common/domain/errors/generic_error.dart';
 
-class GoogleAuthUsecaseImp implements GoogleAuthUsecase {
+class EmailAuthUsecaseImp implements EmailAuthUsecase {
   final AuthDatasource _authDatasource;
   final AppRepository _appRepository;
 
-  GoogleAuthUsecaseImp(
+  EmailAuthUsecaseImp(
       {required AuthDatasource authDatasource,
       required AppRepository appRepository})
       : _authDatasource = authDatasource,
         _appRepository = appRepository;
 
   @override
-  Future<Tuple<GenericError, AppUser>> call() async {
-    final result = await _authDatasource.loginGoogle();
+  Future<Tuple<GenericError, AppUser>> call(LoginDto dto) async {
+    final result = await _authDatasource.loginEmail(dto);
     if (result.isLeft()) {
       return Tuple.left(GenericError(message: result.left.message));
     }

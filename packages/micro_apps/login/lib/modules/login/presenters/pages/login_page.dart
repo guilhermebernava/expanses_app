@@ -1,12 +1,14 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:login/modules/login/presenters/controllers/login_page_controller.dart';
 
 class LoginPage extends StatelessWidget {
-  final GoogleAuthUsecase googleAuthUsecase;
+  final LoginPageController controller;
+
   const LoginPage({
     super.key,
-    required this.googleAuthUsecase,
+    required this.controller,
   });
 
   @override
@@ -26,18 +28,24 @@ class LoginPage extends StatelessWidget {
             const LogoWidget(),
             SizedBox(height: canPop ? 30 : 0),
             Form(
+              key: controller.formKey,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
-                  const Column(
+                  Column(
                     children: [
                       CommonInput(
                         label: "E-mail",
+                        onChanged: (val) => controller.model.email(val),
+                        validator: (val) => controller.model.email.validator(),
                         hintLabel: "yourname@example.com",
                         textInputType: TextInputType.emailAddress,
                       ),
                       CommonInput(
                         label: "Password",
+                        onChanged: (val) => controller.model.password(val),
+                        validator: (val) =>
+                            controller.model.password.validator(),
                         isPassword: true,
                         hintLabel: "yourpassword",
                       ),
@@ -47,7 +55,9 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 30, bottom: 20),
                     child: CommonButtonText.safeButton(
                       width: size.width,
-                      onTap: () async {},
+                      onTap: () async {
+                        await controller.login(context);
+                      },
                       text: "SIGN IN",
                     ),
                   ),

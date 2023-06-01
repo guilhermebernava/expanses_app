@@ -14,10 +14,14 @@ export 'domain/usecases/google_auth/google_auth_usecase.dart';
 export 'domain/usecases/google_auth/google_auth_usecase_imp.dart';
 export 'domain/usecases/logout/logout_usecase.dart';
 export 'domain/usecases/logout/logout_usecase_imp.dart';
+export 'domain/usecases/email_auth/email_auth.dart';
+export 'domain/usecases/email_auth/email_auth_imp.dart';
+export 'domain/entities/user.dart';
 
 //INFRA
 export 'infra/services/show_error_services.dart';
 export 'infra/services/show_modal_bottom_sheet_services.dart';
+export 'infra/dtos/login_dto.dart';
 
 //UTILS
 export 'utils/tuple.dart';
@@ -28,6 +32,8 @@ export 'designs/app_assets.dart';
 export 'envoriment_variables.dart';
 export 'utils/mocks/mock_navigator_observer.dart';
 export 'utils/app_routes.dart';
+export 'utils/value_objects/email.dart';
+export 'utils/value_objects/password.dart';
 
 //WIDGETS
 export 'presenters/widgets/abstract_background.dart';
