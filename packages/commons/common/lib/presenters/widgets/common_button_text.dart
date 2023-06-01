@@ -34,8 +34,9 @@ class CommonButtonText extends StatefulWidget {
 
 class _CommonButtonState extends State<CommonButtonText>
     with TickerProviderStateMixin {
-  late final AnimationController? _animationController;
-  late final Animation<double>? _widthAnimation;
+  AnimationController? _animationController;
+  Animation<double>? _widthAnimation;
+
   bool _isButtonDisabled = false;
   final double borderRadius = 100;
 
@@ -53,6 +54,12 @@ class _CommonButtonState extends State<CommonButtonText>
         ),
       );
     }
+  }
+
+  @override
+  void dispose() {
+    _animationController?.dispose();
+    super.dispose();
   }
 
   void _activeButton() {
