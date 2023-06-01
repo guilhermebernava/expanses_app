@@ -7,10 +7,12 @@ import 'package:splash/modules/get_started/presenters/widgets/carrousel_widget.d
 
 class GetStartedPage extends StatelessWidget {
   final GoogleAuthUsecase googleAuthUsecase;
+  final UserBloc userBloc;
 
   const GetStartedPage({
     super.key,
     required this.googleAuthUsecase,
+    required this.userBloc,
   });
 
   @override
@@ -56,6 +58,7 @@ class GetStartedPage extends StatelessWidget {
                         context,
                         size,
                         googleAuthUsecase,
+                        userBloc,
                       ),
                       text: "Get Started",
                     ),

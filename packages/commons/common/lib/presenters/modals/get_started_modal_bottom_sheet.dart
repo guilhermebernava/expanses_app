@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 class GetStartedModalBottomSheet extends StatelessWidget {
   final Size size;
   final GoogleAuthUsecase googleAuthUsecase;
+  final UserBloc userBloc;
 
   const GetStartedModalBottomSheet({
     super.key,
     required this.size,
     required this.googleAuthUsecase,
+    required this.userBloc,
   });
 
   @override
@@ -61,6 +63,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                           context,
                           size,
                           googleAuthUsecase,
+                          userBloc,
                         );
                       },
                       isReverseColor: true,

@@ -8,13 +8,13 @@ class GetUserUsecaseImp implements GetUserUsecase {
       : _appRepository = appRepository;
 
   @override
-  Future<String?> call() async {
+  Future<Tuple<GenericError, AppUser>> call() async {
     final result = await _appRepository.getUser();
 
     if (result.isLeft()) {
-      return result.left.title;
+      return Tuple.left(GenericError(message: result.left.title));
     }
 
-    return null;
+    return Tuple.right(result.right);
   }
 }

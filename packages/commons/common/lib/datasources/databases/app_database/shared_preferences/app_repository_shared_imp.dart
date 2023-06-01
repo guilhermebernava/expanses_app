@@ -14,7 +14,11 @@ class AppRepositorySharedImp implements AppRepository {
     try {
       final prefs = await SharedPreferences.getInstance();
       final exist = prefs.get(_firstTime);
-      return Tuple.right(exist == null);
+      if (exist == null) {
+        prefs.setString(_firstTime, "true");
+        return Tuple.right(true);
+      }
+      return Tuple.right(false);
     } catch (e) {
       return Tuple.left(
         RepositoryError(

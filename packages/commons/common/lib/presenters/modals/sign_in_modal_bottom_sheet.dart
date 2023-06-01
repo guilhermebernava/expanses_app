@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 class SignInModalBottomSheet extends StatelessWidget {
   final Size size;
   final GoogleAuthUsecase googleAuthUsecase;
+  final UserBloc userBloc;
 
   const SignInModalBottomSheet({
     super.key,
     required this.size,
     required this.googleAuthUsecase,
+    required this.userBloc,
   });
 
   @override
@@ -76,7 +78,20 @@ class SignInModalBottomSheet extends StatelessWidget {
                       ),
                     ),
                     width: size.width,
-                    onTap: () async => await googleAuthUsecase(),
+                    onTap: () async {
+                      final result = await googleAuthUsecase();
+
+                      if (result.isLeft() && context.mounted) {
+                        return ShowErrorServices.showError(
+                            context, result.left.message);
+                      }
+
+                      userBloc.add(Login(user: result.right));
+                      if (context.mounted) {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, AppRoutes.home, (route) => false);
+                      }
+                    },
                     text: "Sign In with Google",
                   ),
                   CommonButtonText.safeButton(

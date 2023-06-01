@@ -36,5 +36,8 @@ class CommonInjector {
         appRepository: getIt.get(),
       ),
     );
+
+    //BLOCS
+    getIt.registerSingleton(UserBloc());
   }
 }

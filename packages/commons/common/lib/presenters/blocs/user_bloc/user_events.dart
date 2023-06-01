@@ -3,13 +3,11 @@ part of 'user_bloc.dart';
 sealed class UserEvents {}
 
 class Login implements UserEvents {
-  final LoginDto dto;
+  final AppUser user;
 
   Login({
-    required this.dto,
+    required this.user,
   });
 }
-
-class LoginGoogle implements UserEvents {}
 
 class Logout implements UserEvents {}

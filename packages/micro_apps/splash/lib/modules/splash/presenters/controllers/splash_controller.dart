@@ -6,10 +6,12 @@ import 'package:splash/modules/splash/domain/use_cases/get_user/get_user_usecase
 class SplashController {
   final FirstTimeAppUseCase firstTimeAppUseCase;
   final GetUserUsecase getUserUsecase;
+  final UserBloc userBloc;
 
   SplashController({
     required this.firstTimeAppUseCase,
     required this.getUserUsecase,
+    required this.userBloc,
   });
 
   Future<void> redirect(BuildContext context) async {
@@ -29,7 +31,8 @@ class SplashController {
 
     final existUser = await getUserUsecase();
 
-    if (existUser == null && context.mounted) {
+    if (existUser.isRight() && context.mounted) {
+      userBloc.add(Login(user: existUser.right));
       Navigator.of(context)
           .pushNamedAndRemoveUntil(AppRoutes.home, (_) => false);
       return;

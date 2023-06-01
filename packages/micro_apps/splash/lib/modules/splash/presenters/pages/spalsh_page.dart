@@ -10,11 +10,13 @@ import '../widgets/text_animated.dart';
 class SplashPage extends StatefulWidget {
   final FirstTimeAppUseCase firstTimeAppUseCase;
   final GetUserUsecase getUserUsecase;
+  final UserBloc userBloc;
 
   const SplashPage({
     super.key,
     required this.firstTimeAppUseCase,
     required this.getUserUsecase,
+    required this.userBloc,
   });
 
   @override
@@ -41,6 +43,7 @@ class _SplashPageState extends State<SplashPage> {
     _controller = SplashController(
       firstTimeAppUseCase: widget.firstTimeAppUseCase,
       getUserUsecase: widget.getUserUsecase,
+      userBloc: widget.userBloc,
     );
     _controller.redirect(context);
     _startAnimation();

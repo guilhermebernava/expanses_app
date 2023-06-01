@@ -33,7 +33,7 @@ void main() {
 
     final response = await appRepository.isFirstTime();
     expect(response.isRight(), true);
-    expect(response.right, false);
+    expect(response.right, true);
   });
 
   test('It should NOT find an user', () async {

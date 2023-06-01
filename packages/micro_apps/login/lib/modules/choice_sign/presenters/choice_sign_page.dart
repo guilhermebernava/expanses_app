@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class ChoiceSignPage extends StatelessWidget {
   final GoogleAuthUsecase googleAuthUsecase;
+  final UserBloc userBloc;
 
   const ChoiceSignPage({
     super.key,
     required this.googleAuthUsecase,
+    required this.userBloc,
   });
 
   @override
@@ -71,7 +73,11 @@ class ChoiceSignPage extends StatelessWidget {
                         width: double.infinity,
                         onTap: () async {
                           ShowModalBottomSheetServices.showGetStarted(
-                              context, size, googleAuthUsecase);
+                            context,
+                            size,
+                            googleAuthUsecase,
+                            userBloc,
+                          );
                         },
                         text: "Let's Start",
                       )

@@ -13,9 +13,11 @@ void main() {
     expect(find.byType(GetStartedModalBottomSheet), findsNothing);
 
     ShowModalBottomSheetServices.showGetStarted(
-        tester.element(find.byType(Scaffold)),
-        const Size(600, 600),
-        GoogleMock());
+      tester.element(find.byType(Scaffold)),
+      const Size(600, 600),
+      GoogleMock(),
+      UserBloc(),
+    );
     await tester.pumpAndSettle();
     expect(find.byType(GetStartedModalBottomSheet), findsOneWidget);
   });

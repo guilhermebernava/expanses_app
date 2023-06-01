@@ -41,6 +41,7 @@ void main() {
       MaterialApp(
         home: LoginPage(
           controller: LoginPageController(
+            userBloc: UserBloc(),
             emailAuthUsecase: EmailAuthMock(),
           ),
         ),
@@ -56,6 +57,7 @@ void main() {
       MaterialApp(
         home: LoginPage(
           controller: LoginPageController(
+            userBloc: UserBloc(),
             emailAuthUsecase: EmailAuthMock(),
           ),
         ),
@@ -76,6 +78,7 @@ void main() {
       routes: {
         AppRoutes.signIn: (_) => LoginPage(
               controller: LoginPageController(
+                userBloc: UserBloc(),
                 emailAuthUsecase: EmailAuthMock(),
               ),
             ),

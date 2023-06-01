@@ -12,9 +12,11 @@ class SplashResolver implements MicroApp {
         AppRoutes.splash: (context, args) => SplashPage(
               firstTimeAppUseCase: GetIt.instance.get(),
               getUserUsecase: GetIt.instance.get(),
+              userBloc: GetIt.instance.get(),
             ),
         AppRoutes.getStarted: (context, args) => GetStartedPage(
               googleAuthUsecase: GetIt.instance.get(),
+              userBloc: GetIt.instance.get(),
             ),
       };
 

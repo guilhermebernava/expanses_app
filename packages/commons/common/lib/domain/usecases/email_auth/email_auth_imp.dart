@@ -1,5 +1,4 @@
 import 'package:common/common.dart';
-import 'package:common/domain/errors/generic_error.dart';
 
 class EmailAuthUsecaseImp implements EmailAuthUsecase {
   final AuthDatasource _authDatasource;

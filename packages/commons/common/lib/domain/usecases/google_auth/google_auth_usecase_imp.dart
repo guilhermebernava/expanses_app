@@ -1,5 +1,4 @@
 import 'package:common/common.dart';
-import 'package:common/domain/errors/generic_error.dart';
 
 class GoogleAuthUsecaseImp implements GoogleAuthUsecase {
   final AuthDatasource _authDatasource;

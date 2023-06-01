@@ -17,6 +17,7 @@ export 'domain/usecases/logout/logout_usecase_imp.dart';
 export 'domain/usecases/email_auth/email_auth.dart';
 export 'domain/usecases/email_auth/email_auth_imp.dart';
 export 'domain/entities/user.dart';
+export 'domain/errors/generic_error.dart';
 
 //INFRA
 export 'infra/services/show_error_services.dart';
@@ -34,6 +35,7 @@ export 'utils/mocks/mock_navigator_observer.dart';
 export 'utils/app_routes.dart';
 export 'utils/value_objects/email.dart';
 export 'utils/value_objects/password.dart';
+export 'utils/form_validations.dart';
 
 //WIDGETS
 export 'presenters/widgets/abstract_background.dart';
@@ -53,3 +55,6 @@ export 'presenters/animations/moving_animation.dart';
 //PAGES
 export 'presenters/pages/common_page_structure.dart';
 export 'presenters/animations/common_page_animated.dart';
+
+//BLOCS
+export 'presenters/blocs/user_bloc/user_bloc.dart';

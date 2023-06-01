@@ -1,3 +1,5 @@
+import 'package:common/common.dart';
+
 abstract interface class GetUserUsecase {
-  Future<String?> call();
+  Future<Tuple<GenericError, AppUser>> call();
 }

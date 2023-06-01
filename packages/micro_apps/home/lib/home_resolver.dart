@@ -1,5 +1,6 @@
 import 'package:common_dependencies/common_dependencies.dart';
 import 'package:common/common.dart';
+import 'package:home/presenters/controllers/home_page_controller.dart';
 import 'package:home/presenters/pages/home_page.dart';
 
 class HomeResolver implements MicroApp {
@@ -12,7 +13,10 @@ class HomeResolver implements MicroApp {
   @override
   Map<String, WidgetBuilderArgs> get routes => {
         AppRoutes.home: (context, args) => HomePage(
-              logoutUsecase: GetIt.instance.get(),
+              controller: HomePageController(
+                logoutUsecase: GetIt.instance.get(),
+                userBloc: GetIt.instance.get(),
+              ),
             ),
       };
 }

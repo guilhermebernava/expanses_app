@@ -14,6 +14,7 @@ void main() {
       MaterialApp(
         home: GetStartedPage(
           googleAuthUsecase: GoogleMock(),
+          userBloc: UserBloc(),
         ),
       ),
     );
@@ -26,6 +27,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
         home: GetStartedPage(
       googleAuthUsecase: GoogleMock(),
+      userBloc: UserBloc(),
     )));
     await tester.pumpAndSettle(const Duration(seconds: 10));
 
@@ -38,6 +40,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: GetStartedPage(
         googleAuthUsecase: GoogleMock(),
+        userBloc: UserBloc(),
       ),
       navigatorObservers: [mockObserver],
     ));

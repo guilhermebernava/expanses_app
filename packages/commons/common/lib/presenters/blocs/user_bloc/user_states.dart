@@ -9,11 +9,3 @@ class UserLogged implements UserStates {
 }
 
 class UserLogout implements UserStates {}
-
-class UserError implements UserStates {
-  final String message;
-
-  UserError({
-    required this.message,
-  });
-}

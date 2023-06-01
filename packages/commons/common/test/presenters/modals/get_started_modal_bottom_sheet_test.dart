@@ -16,6 +16,7 @@ void main() {
       tester.element(find.byType(Scaffold)),
       const Size(600, 600),
       GoogleMock(),
+      UserBloc(),
     );
     await tester.pumpAndSettle();
     expect(find.byType(GetStartedModalBottomSheet), findsOneWidget);
@@ -33,6 +34,7 @@ void main() {
       tester.element(find.byType(Scaffold)),
       const Size(600, 600),
       GoogleMock(),
+      UserBloc(),
     );
     await tester.pumpAndSettle();
 

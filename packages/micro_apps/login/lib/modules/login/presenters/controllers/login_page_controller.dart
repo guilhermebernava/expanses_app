@@ -4,33 +4,31 @@ import 'package:login/modules/login/presenters/models/login_model.dart';
 
 class LoginPageController {
   final EmailAuthUsecase emailAuthUsecase;
+  final UserBloc userBloc;
   final formKey = GlobalKey<FormState>();
   final model = LoginModel();
 
   LoginPageController({
     required this.emailAuthUsecase,
+    required this.userBloc,
   });
 
   Future<void> login(BuildContext context) async {
-    if (!validateForm()) {
+    if (!FormValidations.validateForm(formKey)) {
       return;
     }
 
-    await emailAuthUsecase(
+    final result = await emailAuthUsecase(
         LoginDto(email: model.email.value, password: model.password.value));
-  }
 
-  bool validateForm() {
-    final formState = formKey.currentState;
-
-    if (formState == null) {
-      return false;
+    if (result.isLeft() && context.mounted) {
+      return ShowErrorServices.showError(context, result.left.message);
     }
+    userBloc.add(Login(user: result.right));
 
-    if (!formState.validate()) {
-      return false;
+    if (context.mounted) {
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(AppRoutes.home, (route) => false);
     }
-
-    return true;
   }
 }

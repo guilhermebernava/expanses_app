@@ -10,7 +10,13 @@ void main() {
   testWidgets('It should create the widget', (tester) async {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(
-        MaterialApp(home: ChoiceSignPage(googleAuthUsecase: GoogleMock())));
+      MaterialApp(
+        home: ChoiceSignPage(
+          googleAuthUsecase: GoogleMock(),
+          userBloc: UserBloc(),
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
     expect(find.byType(ChoiceSignPage), findsOneWidget);
   });

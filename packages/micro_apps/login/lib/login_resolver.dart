@@ -13,9 +13,11 @@ class LoginResolver implements MicroApp {
   Map<String, WidgetBuilderArgs> get routes => {
         AppRoutes.choiceSign: (context, args) => ChoiceSignPage(
               googleAuthUsecase: GetIt.instance.get(),
+              userBloc: GetIt.instance.get(),
             ),
         AppRoutes.signIn: (context, args) => LoginPage(
               controller: LoginPageController(
+                userBloc: GetIt.instance.get(),
                 emailAuthUsecase: GetIt.instance.get(),
               ),
             ),

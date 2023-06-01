@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:common/common.dart';
+import 'package:home/presenters/controllers/home_page_controller.dart';
 
 class HomePage extends StatelessWidget {
-  final LogoutUsecase logoutUsecase;
+  final HomePageController controller;
+
   const HomePage({
     super.key,
-    required this.logoutUsecase,
+    required this.controller,
   });
 
   @override
@@ -14,7 +16,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: CommonButtonText(
           width: 150,
-          onTap: () async => await logoutUsecase(),
+          onTap: () => controller.logout(context),
           text: "LOGOUT",
         ),
       ),

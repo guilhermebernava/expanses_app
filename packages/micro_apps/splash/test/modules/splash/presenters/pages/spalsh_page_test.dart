@@ -9,7 +9,11 @@ import 'package:splash/modules/splash/domain/use_cases/get_user/get_user_usecase
 import 'package:splash/modules/splash/presenters/pages/spalsh_page.dart';
 import 'package:common/common.dart';
 
-class GoogleMock extends Mock implements GoogleAuthUsecase {}
+class EmailAuthMock extends Mock implements EmailAuthUsecase {}
+
+class GoogleAuthMock extends Mock implements GoogleAuthUsecase {}
+
+class LogoutMock extends Mock implements LogoutUsecase {}
 
 void main() {
   setUpAll(() {
@@ -29,6 +33,7 @@ void main() {
     TestWidgetsFlutterBinding.ensureInitialized();
     await tester.pumpWidget(MaterialApp(
       home: SplashPage(
+        userBloc: UserBloc(),
         firstTimeAppUseCase: FirstTimeAppUsecaseImp(
           appRepository: AppRepositorySharedImp(),
         ),
@@ -37,8 +42,10 @@ void main() {
         ),
       ),
       routes: {
-        AppRoutes.getStarted: (context) =>
-            GetStartedPage(googleAuthUsecase: GoogleMock())
+        AppRoutes.getStarted: (context) => GetStartedPage(
+              googleAuthUsecase: GoogleAuthMock(),
+              userBloc: UserBloc(),
+            )
       },
     ));
 
