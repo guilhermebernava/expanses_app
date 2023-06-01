@@ -1,5 +1,6 @@
 import 'package:common/common.dart';
 import 'package:common/datasources/errors/api_error.dart';
+import 'package:common/infra/dtos/sign_up_dto.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 class FirebaseAuthDatasourceImp implements AuthDatasource {
@@ -97,6 +98,12 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
   @override
   Future<Tuple<ApiError, AppUser>> loginGithub() {
     // TODO: implement loginGithub
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Tuple<ApiError, AppUser>> signUp(SignUpDto dto) {
+    // TODO: implement signUp
     throw UnimplementedError();
   }
 }

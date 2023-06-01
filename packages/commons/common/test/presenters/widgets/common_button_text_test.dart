@@ -91,19 +91,4 @@ void main() {
 
     expect(widgetFinder, findsOneWidget);
   });
-  //TODO checar como testa animacoes
-  // testWidgets('It should onTap change to LOADING', (tester) async {
-  //   TestWidgetsFlutterBinding.ensureInitialized();
-  //   await tester.pumpWidget(MaterialApp(
-  //     home: CommonButtonText(
-  //       width: double.infinity,
-  //       onTap: () async {},
-  //       text: "test",
-  //     ),
-  //   ));
-
-  //   final button = find.byKey(const ValueKey("test"));
-  //   await tester.tap(button);
-  //   expect(find.byType(CircularProgressIndicator), findsOneWidget);
-  // });
 }
