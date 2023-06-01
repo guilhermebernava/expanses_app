@@ -1,10 +1,15 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:login/modules/sign_up/presenters/controllers/sign_up_page_controller.dart';
 import 'package:login/modules/sign_up/presenters/widgets/sign_up_logo.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+  final SignUpPageController controller;
+  const SignUpPage({
+    super.key,
+    required this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +55,9 @@ class SignUpPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 40),
                   child: CommonButtonText.safeButton(
+                    key: const ValueKey("SIGN_UP"),
                     width: size.width,
-                    onTap: () async {},
+                    onTap: () async => await controller.signUp(context),
                     text: "SIGN UP",
                   ),
                 )

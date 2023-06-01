@@ -51,6 +51,7 @@ class SignInModalBottomSheet extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CommonButtonText(
+                    key: const ValueKey("SIGN_IN"),
                     width: size.width,
                     leading: const Padding(
                       padding: EdgeInsets.only(right: 20),
@@ -65,6 +66,7 @@ class SignInModalBottomSheet extends StatelessWidget {
                     text: "Sign In with Email",
                   ),
                   CommonButtonText.safeButton(
+                    key: const ValueKey("GOOGLE"),
                     isReverseColor: true,
                     leading: Padding(
                       padding: const EdgeInsets.only(right: 20),
@@ -95,6 +97,7 @@ class SignInModalBottomSheet extends StatelessWidget {
                     text: "Sign In with Google",
                   ),
                   CommonButtonText.safeButton(
+                    key: const ValueKey("GITHUB"),
                     isReverseColor: true,
                     leading: Padding(
                       padding: const EdgeInsets.only(right: 20),

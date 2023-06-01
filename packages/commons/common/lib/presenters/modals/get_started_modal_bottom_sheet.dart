@@ -51,7 +51,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                     onTap: () async {
                       Navigator.pushNamed(context, AppRoutes.signUp);
                     },
-                    text: "Sign Up",
+                    text: "SIGN UP",
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 25),
@@ -67,7 +67,7 @@ class GetStartedModalBottomSheet extends StatelessWidget {
                         );
                       },
                       isReverseColor: true,
-                      text: "Sign In",
+                      text: "SIGN IN",
                     ),
                   ),
                 ],

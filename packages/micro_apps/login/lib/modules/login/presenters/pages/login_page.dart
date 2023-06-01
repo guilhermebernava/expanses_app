@@ -22,55 +22,59 @@ class LoginPage extends StatelessWidget {
         canPopUp: canPop,
         size: size,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const LogoWidget(),
-            SizedBox(height: canPop ? 30 : 0),
-            Form(
-              key: controller.formKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Column(
-                children: [
-                  Column(
-                    children: [
-                      CommonInput(
-                        label: "E-mail",
-                        onChanged: (val) => controller.model.email(val),
-                        validator: (val) => controller.model.email.validator(),
-                        hintLabel: "yourname@example.com",
-                        textInputType: TextInputType.emailAddress,
-                      ),
-                      CommonInput(
-                        label: "Password",
-                        onChanged: (val) => controller.model.password(val),
-                        validator: (val) =>
-                            controller.model.password.validator(),
-                        isPassword: true,
-                        hintLabel: "yourpassword",
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 20),
-                    child: CommonButtonText.safeButton(
-                      width: size.width,
-                      onTap: () async {
-                        await controller.login(context);
-                      },
-                      text: "SIGN IN",
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const LogoWidget(),
+              SizedBox(height: canPop ? 30 : 0),
+              Form(
+                key: controller.formKey,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(
+                  children: [
+                    Column(
+                      children: [
+                        CommonInput(
+                          label: "E-mail",
+                          onChanged: (val) => controller.model.email(val),
+                          validator: (val) =>
+                              controller.model.email.validator(),
+                          hintLabel: "yourname@example.com",
+                          textInputType: TextInputType.emailAddress,
+                        ),
+                        CommonInput(
+                          label: "Password",
+                          onChanged: (val) => controller.model.password(val),
+                          validator: (val) =>
+                              controller.model.password.validator(),
+                          isPassword: true,
+                          hintLabel: "yourpassword",
+                        ),
+                      ],
                     ),
-                  ),
-                  CommonTextButton(
-                    text: "Forgot your password ?",
-                    onTap: () {
-                      //TODO implementar recuperar senha
-                    },
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30, bottom: 20),
+                      child: CommonButtonText.safeButton(
+                        key: const ValueKey("SIGN_IN"),
+                        width: size.width,
+                        onTap: () async {
+                          await controller.login(context);
+                        },
+                        text: "SIGN IN",
+                      ),
+                    ),
+                    CommonTextButton(
+                      text: "Forgot your password ?",
+                      onTap: () {
+                        //TODO implementar recuperar senha
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

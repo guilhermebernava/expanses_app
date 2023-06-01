@@ -94,4 +94,35 @@ void main() {
     await tester.pump();
     expect(mockObserver.poppedRoutes.length, 1);
   });
+
+  testWidgets('It should navigate to home', (tester) async {
+    final mockObserver = MockNavigatorObserver();
+    final emailAuth = EmailAuthMock();
+
+    final controller = LoginPageController(
+      userBloc: UserBloc(),
+      emailAuthUsecase: emailAuth,
+    );
+
+    controller.model.email.set("a@a.com");
+    controller.model.password.set("123");
+
+    when(() => emailAuth(any())).thenAnswer(
+        (invocation) async => Tuple.right(AppUser(displayName: "", id: "")));
+
+    await tester.pumpWidget(MaterialApp(
+      home: LoginPage(
+        controller: controller,
+      ),
+      routes: {
+        AppRoutes.home: (_) => Container(),
+      },
+      navigatorObservers: [mockObserver],
+    ));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byKey(const ValueKey("SIGN_IN")));
+    await tester.pumpAndSettle(const Duration(seconds: 10));
+    expect(find.byType(Container), findsOneWidget);
+  });
 }

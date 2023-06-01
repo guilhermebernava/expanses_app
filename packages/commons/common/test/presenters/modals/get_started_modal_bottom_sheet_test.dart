@@ -38,7 +38,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text("Sign In"), findsOneWidget);
-    expect(find.text("Sign Up"), findsOneWidget);
+    expect(find.text("SIGN IN"), findsOneWidget);
+    expect(find.text("SIGN UP"), findsOneWidget);
   });
 }
