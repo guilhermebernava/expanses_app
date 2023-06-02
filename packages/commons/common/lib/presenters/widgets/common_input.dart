@@ -42,7 +42,7 @@ class _LoginInputState extends State<CommonInput> {
     _focus.addListener(() {
       if (_focus.hasFocus) {
         return setState(() {
-          bottom = MediaQuery.of(context).viewInsets.bottom * 1.2;
+          bottom = MediaQuery.of(context).viewInsets.bottom * 1.1;
         });
       }
       return setState(() {

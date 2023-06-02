@@ -1,5 +1,5 @@
-import 'package:common/datasources/api/dio/check_internet.dart';
 import 'package:common/datasources/api/dio/dio_api_datasource_imp.dart';
+import 'package:common/utils/validators/check_internet/check_internet.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class CheckInternetMock implements CheckInternet {

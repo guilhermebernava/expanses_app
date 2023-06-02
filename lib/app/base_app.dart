@@ -32,15 +32,22 @@ class App extends StatelessWidget with BaseApp {
       initialRoute: AppRoutes.splash,
       onGenerateRoute: super.generateRoute,
       theme: ThemeData(
+        dialogTheme: DialogTheme(
+          backgroundColor: AppColors.darkBlue,
+          titleTextStyle: AppFonts.montserrat(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.green,
+            statusBarColor: AppColors.primary,
             statusBarIconBrightness: Brightness.dark,
             statusBarBrightness: Brightness.dark,
           ),
         ),
         colorScheme: ColorScheme.fromSeed(
           background: AppColors.darkBlue,
+          brightness: Brightness.dark,
           seedColor: AppColors.primary,
         ),
         useMaterial3: true,

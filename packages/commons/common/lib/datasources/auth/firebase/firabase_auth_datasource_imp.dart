@@ -1,11 +1,26 @@
 import 'package:common/common.dart';
 import 'package:common/datasources/errors/api_error.dart';
+import 'package:common/utils/validators/check_internet/check_internet.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 class FirebaseAuthDatasourceImp implements AuthDatasource {
+  final CheckInternet _checkInternet;
+
+  FirebaseAuthDatasourceImp({required CheckInternet checkInternet})
+      : _checkInternet = checkInternet;
+
   @override
   Future<Tuple<ApiError, void>> logout() async {
     try {
+      if (await _haveInternet() == false) {
+        return Tuple.left(
+          ApiError(
+            endpoint: "forgot-password",
+            message: "NO INTERNET",
+            statusCode: 001,
+          ),
+        );
+      }
       await FirebaseAuth.instance.signOut();
       return Tuple.right(null);
     } catch (e) {
@@ -22,6 +37,15 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
   @override
   Future<Tuple<ApiError, AppUser>> loginEmail(LoginDto dto) async {
     try {
+      if (await _haveInternet() == false) {
+        return Tuple.left(
+          ApiError(
+            endpoint: "forgot-password",
+            message: "NO INTERNET",
+            statusCode: 001,
+          ),
+        );
+      }
       final userCredentials = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: dto.email, password: dto.password);
 
@@ -54,6 +78,15 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
   @override
   Future<Tuple<ApiError, AppUser>> loginGoogle() async {
     try {
+      if (await _haveInternet() == false) {
+        return Tuple.left(
+          ApiError(
+            endpoint: "forgot-password",
+            message: "NO INTERNET",
+            statusCode: 001,
+          ),
+        );
+      }
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
       if (googleUser == null) {
@@ -103,6 +136,15 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
   @override
   Future<Tuple<ApiError, AppUser>> signUp(SignUpDto dto) async {
     try {
+      if (await _haveInternet() == false) {
+        return Tuple.left(
+          ApiError(
+            endpoint: "forgot-password",
+            message: "NO INTERNET",
+            statusCode: 001,
+          ),
+        );
+      }
       final userCredentials = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: dto.email, password: dto.password);
@@ -132,4 +174,39 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
       );
     }
   }
+
+  @override
+  Future<Tuple<ApiError, void>> forgotPassword(String email) async {
+    try {
+      if (await _haveInternet() == false) {
+        return Tuple.left(
+          ApiError(
+            endpoint: "forgot-password",
+            message: "NO INTERNET",
+            statusCode: 001,
+          ),
+        );
+      }
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return Tuple.right(null);
+    } on FirebaseAuthException catch (firebase) {
+      return Tuple.left(
+        ApiError(
+          endpoint: "reset-password-firebase",
+          message: firebase.code,
+          statusCode: 400,
+        ),
+      );
+    } catch (e) {
+      return Tuple.left(
+        ApiError(
+          endpoint: "reset-password-firebase",
+          message: e.toString(),
+          statusCode: 500,
+        ),
+      );
+    }
+  }
+
+  Future<bool> _haveInternet() async => await _checkInternet.hasInternet();
 }

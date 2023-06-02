@@ -12,6 +12,8 @@ class AppRepositoryMock extends Mock implements AppRepository {}
 
 class EmailAuthMock extends Mock implements EmailAuthUsecase {}
 
+class RecoverMock extends Mock implements RecoverPasswordUsecase {}
+
 void main() {
   FlutterSecureStorage.setMockInitialValues({
     "user": '''
@@ -42,6 +44,7 @@ void main() {
         home: LoginPage(
           controller: LoginPageController(
             userBloc: UserBloc(),
+            recoverPasswordUsecase: RecoverMock(),
             emailAuthUsecase: EmailAuthMock(),
           ),
         ),
@@ -58,6 +61,7 @@ void main() {
         home: LoginPage(
           controller: LoginPageController(
             userBloc: UserBloc(),
+            recoverPasswordUsecase: RecoverMock(),
             emailAuthUsecase: EmailAuthMock(),
           ),
         ),
@@ -79,6 +83,7 @@ void main() {
         AppRoutes.signIn: (_) => LoginPage(
               controller: LoginPageController(
                 userBloc: UserBloc(),
+                recoverPasswordUsecase: RecoverMock(),
                 emailAuthUsecase: EmailAuthMock(),
               ),
             ),
@@ -102,6 +107,7 @@ void main() {
     final controller = LoginPageController(
       userBloc: UserBloc(),
       emailAuthUsecase: emailAuth,
+      recoverPasswordUsecase: RecoverMock(),
     );
 
     controller.model.email.set("a@a.com");

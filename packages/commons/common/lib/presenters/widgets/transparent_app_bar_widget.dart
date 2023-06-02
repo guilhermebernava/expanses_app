@@ -1,4 +1,5 @@
 import 'package:common/designs/app_colors.dart';
+import 'package:common/presenters/widgets/common_close_button.dart';
 import 'package:flutter/material.dart';
 
 class TransparentAppBarWidget extends StatelessWidget {
@@ -18,17 +19,10 @@ class TransparentAppBarWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 10, top: 40, bottom: 15),
-          child: GestureDetector(
+          child: CommonCloseButton(
+            color: color,
+            onTap: onTap,
             key: const ValueKey("appBar"),
-            onTap: onTap ??
-                () {
-                  Navigator.pop(context);
-                },
-            child: Icon(
-              Icons.close,
-              size: 30,
-              color: color,
-            ),
           ),
         )
       ],

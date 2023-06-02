@@ -1,5 +1,7 @@
 import 'package:common/common.dart';
 import 'package:common/datasources/databases/app_database/secure_storage/app_repository_secure_imp.dart';
+import 'package:common/domain/usecases/recover_password/recover_password_usecase_imp.dart';
+import 'package:common/utils/validators/check_internet/check_internet_connectivy_imp.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 class CommonInjector {
@@ -12,7 +14,9 @@ class CommonInjector {
     );
 
     getIt.registerLazySingleton<AuthDatasource>(
-      () => FirebaseAuthDatasourceImp(),
+      () => FirebaseAuthDatasourceImp(
+        checkInternet: CheckInternetConnectivyImp(),
+      ),
     );
 
     //DOMAIN
@@ -41,6 +45,12 @@ class CommonInjector {
       () => LogoutUsecaseImp(
         authDatasource: getIt.get(),
         appRepository: getIt.get(),
+      ),
+    );
+
+    getIt.registerLazySingleton<RecoverPasswordUsecase>(
+      () => RecoverPasswordUsecaseImp(
+        authDatasource: getIt.get(),
       ),
     );
 

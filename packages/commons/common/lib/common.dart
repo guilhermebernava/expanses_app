@@ -20,6 +20,7 @@ export 'domain/usecases/sign_up/sign_up_usecase.dart';
 export 'domain/usecases/sign_up/sign_up_usecase_imp.dart';
 export 'domain/entities/user.dart';
 export 'domain/errors/generic_error.dart';
+export 'domain/usecases/recover_password/recover_password_usecase.dart';
 
 //INFRA
 export 'infra/services/show_error_services.dart';
@@ -53,6 +54,7 @@ export 'presenters/modals/get_started_modal_bottom_sheet.dart';
 export 'presenters/modals/sign_in_modal_bottom_sheet.dart';
 export 'presenters/widgets/common_form.dart';
 export 'presenters/pages/common_page.dart';
+export 'presenters/widgets/common_close_button.dart';
 
 //ANIMATIONS
 export 'presenters/animations/moving_animation.dart';

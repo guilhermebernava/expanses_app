@@ -18,6 +18,7 @@ class LoginResolver implements MicroApp {
             ),
         AppRoutes.signIn: (context, args) => LoginPage(
               controller: LoginPageController(
+                recoverPasswordUsecase: GetIt.instance.get(),
                 userBloc: GetIt.instance.get(),
                 emailAuthUsecase: GetIt.instance.get(),
               ),

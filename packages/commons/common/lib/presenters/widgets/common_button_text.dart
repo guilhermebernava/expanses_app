@@ -19,6 +19,7 @@ class CommonButtonText extends StatefulWidget {
     this.isReverseColor = false,
   }) : _isSafeButton = false;
 
+  //TODO adicionar feedback visual para o vbutton
   const CommonButtonText.safeButton({
     super.key,
     required this.width,

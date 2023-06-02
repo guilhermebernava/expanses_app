@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class CommonTextButton extends StatelessWidget {
   final String text;
+  final FontWeight fontWeight;
   final VoidCallback onTap;
   final double fontSize;
 
@@ -10,6 +11,7 @@ class CommonTextButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onTap,
+    this.fontWeight = FontWeight.normal,
     this.fontSize = 14,
   });
 
@@ -26,6 +28,7 @@ class CommonTextButton extends StatelessWidget {
             overflow: TextOverflow.fade,
             style: AppFonts.montserrat(
               fontSize: fontSize,
+              fontWeight: fontWeight,
             ),
           ),
         ),

@@ -9,6 +9,7 @@ abstract interface class AuthDatasource {
   Future<Tuple<ApiError, AppUser>> loginGithub();
   Future<Tuple<ApiError, AppUser>> loginEmail(LoginDto dto);
   Future<Tuple<ApiError, AppUser>> signUp(SignUpDto dto);
+  Future<Tuple<ApiError, void>> forgotPassword(String email);
 
   Future<Tuple<ApiError, void>> logout();
 }

@@ -1,9 +1,9 @@
 import 'package:common/datasources/api/api_datasource.dart';
-import 'package:common/datasources/api/dio/check_internet.dart';
 import 'package:common/datasources/errors/api_error.dart';
 import 'package:common/utils/isolates/isolate_function_props.dart';
 import 'package:common/utils/isolates/isolate_functions.dart';
 import 'package:common/utils/tuple.dart';
+import 'package:common/utils/validators/check_internet/check_internet.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 class DioApiDatasourceImp implements ApiDatasource {

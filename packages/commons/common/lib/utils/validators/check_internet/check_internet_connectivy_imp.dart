@@ -1,4 +1,4 @@
-import 'package:common/datasources/api/dio/check_internet.dart';
+import 'package:common/utils/validators/check_internet/check_internet.dart';
 import 'package:common_dependencies/common_dependencies.dart';
 
 class CheckInternetConnectivyImp implements CheckInternet {
