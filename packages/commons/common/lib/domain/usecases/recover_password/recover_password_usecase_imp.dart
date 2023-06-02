@@ -1,5 +1,4 @@
 import 'package:common/common.dart';
-import 'package:common/domain/usecases/recover_password/recover_password_usecase.dart';
 
 class RecoverPasswordUsecaseImp implements RecoverPasswordUsecase {
   final AuthDatasource _authDatasource;

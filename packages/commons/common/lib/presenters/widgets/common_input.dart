@@ -1,6 +1,7 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
+//TODO bug de muito bottom padding
 class CommonInput extends StatefulWidget {
   final String label;
   final String? counterLabel;

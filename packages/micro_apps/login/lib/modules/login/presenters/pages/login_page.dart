@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
             ),
             CommonTextButton(
               text: "Forgot your password ?",
-              onTap: () async => controller.recoverPassword(context, size),
+              onTap: () => controller.recoverPassword(context, size),
             ),
           ],
         ),
