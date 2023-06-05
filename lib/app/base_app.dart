@@ -6,13 +6,12 @@ import 'package:login/login.dart';
 import 'package:micro_core/micro_core.dart';
 import 'package:splash/splash.dart';
 
-class App extends StatelessWidget with BaseApp {
+class App extends StatefulWidget with BaseApp {
   App({super.key}) {
     CommonInjector.injection();
     super.registerInjections();
     super.registerRoutes();
   }
-
   @override
   Map<String, WidgetBuilderArgs> get baseRoutes => {};
 
@@ -23,14 +22,32 @@ class App extends StatelessWidget with BaseApp {
         HomeResolver(),
       ];
 
+  static void restartApp(BuildContext context) {
+    context.findAncestorStateOfType<_AppState>()?.restartApp();
+  }
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  Key key = UniqueKey();
+
+  void restartApp() {
+    setState(() {
+      key = UniqueKey();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      key: key,
       title: 'ExpansesApp',
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.splash,
-      onGenerateRoute: super.generateRoute,
+      onGenerateRoute: widget.generateRoute,
       theme: ThemeData(
         dialogTheme: DialogTheme(
           backgroundColor: AppColors.darkBlue,

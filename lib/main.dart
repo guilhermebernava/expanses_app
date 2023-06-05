@@ -1,4 +1,5 @@
 import 'package:expenzio/app/base_app.dart';
+import 'package:expenzio/app/pages/error_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -11,5 +12,6 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform);
   FirebaseAuth.instanceFor(app: app);
 
+  ErrorWidget.builder = (details) => ErrorPage(details: details);
   runApp(App());
 }

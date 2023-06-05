@@ -2,6 +2,7 @@ import 'package:common/common.dart';
 import 'package:common/datasources/errors/api_error.dart';
 import 'package:common/utils/validators/check_internet/check_internet.dart';
 import 'package:common_dependencies/common_dependencies.dart';
+import 'package:flutter/material.dart';
 
 class FirebaseAuthDatasourceImp implements AuthDatasource {
   final CheckInternet _checkInternet;
@@ -24,6 +25,14 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
       await FirebaseAuth.instance.signOut();
       return Tuple.right(null);
     } catch (e) {
+      FlutterError.reportError(
+        FlutterErrorDetails(
+          exception: e,
+          library: "Firabase",
+          context: ErrorSummary('Logout'),
+        ),
+      );
+
       return Tuple.left(
         ApiError(
           endpoint: "logout_firebase",
@@ -57,6 +66,14 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
 
       return Tuple.right(user);
     } on FirebaseException catch (firebase) {
+      FlutterError.reportError(
+        FlutterErrorDetails(
+          exception: firebase,
+          library: "Firabase",
+          context: ErrorSummary('Login-Email'),
+        ),
+      );
+
       return Tuple.left(
         ApiError(
           endpoint: "email-firebase-login",
@@ -65,6 +82,14 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
         ),
       );
     } catch (e) {
+      FlutterError.reportError(
+        FlutterErrorDetails(
+          exception: e,
+          library: "Firabase",
+          context: ErrorSummary('Login-Email'),
+        ),
+      );
+
       return Tuple.left(
         ApiError(
           endpoint: "email-firebase-login",
@@ -117,6 +142,14 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
 
       return Tuple.right(user);
     } catch (e) {
+      FlutterError.reportError(
+        FlutterErrorDetails(
+          exception: e,
+          library: "Firabase",
+          context: ErrorSummary('Login-Google'),
+        ),
+      );
+
       return Tuple.left(
         ApiError(
           endpoint: "GoogleSignIn",
@@ -157,6 +190,14 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
 
       return Tuple.right(user);
     } on FirebaseAuthException catch (firebase) {
+      FlutterError.reportError(
+        FlutterErrorDetails(
+          exception: firebase,
+          library: "Firabase",
+          context: ErrorSummary('SignUp-Email'),
+        ),
+      );
+
       return Tuple.left(
         ApiError(
           endpoint: "email-firebase-sign-up",
@@ -165,6 +206,14 @@ class FirebaseAuthDatasourceImp implements AuthDatasource {
         ),
       );
     } catch (e) {
+      FlutterError.reportError(
+        FlutterErrorDetails(
+          exception: e,
+          library: "Firabase",
+          context: ErrorSummary('SignUp-Email'),
+        ),
+      );
+
       return Tuple.left(
         ApiError(
           endpoint: "email-firebase-login",

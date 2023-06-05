@@ -9,12 +9,14 @@ class CommonButtonText extends StatefulWidget {
   final bool isReverseColor;
   final Widget? leading;
   final bool _isSafeButton;
+  final Color color;
 
   const CommonButtonText({
     super.key,
     required this.width,
     required this.onTap,
     required this.text,
+    this.color = AppColors.primary,
     this.leading,
     this.isReverseColor = false,
   }) : _isSafeButton = false;
@@ -25,6 +27,7 @@ class CommonButtonText extends StatefulWidget {
     required this.width,
     required this.onTap,
     required this.text,
+    this.color = AppColors.primary,
     this.leading,
     this.isReverseColor = false,
   }) : _isSafeButton = true;
@@ -96,14 +99,14 @@ class _CommonButtonState extends State<CommonButtonText>
         border: widget.isReverseColor
             ? Border.all(
                 width: 4,
-                color: AppColors.primary,
+                color: AppColors.white,
               )
             : null,
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: Material(
         borderRadius: BorderRadius.circular(borderRadius),
-        color: widget.isReverseColor ? Colors.transparent : AppColors.primary,
+        color: widget.isReverseColor ? Colors.transparent : widget.color,
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           splashColor: AppColors.white.withOpacity(0.1),
@@ -142,7 +145,7 @@ class _CommonButtonState extends State<CommonButtonText>
           border: widget.isReverseColor
               ? Border.all(
                   width: 4,
-                  color: AppColors.primary,
+                  color: AppColors.white,
                 )
               : null,
           borderRadius: BorderRadius.circular(borderRadius),
@@ -151,7 +154,7 @@ class _CommonButtonState extends State<CommonButtonText>
       ),
       child: Material(
         borderRadius: BorderRadius.circular(borderRadius),
-        color: widget.isReverseColor ? Colors.transparent : AppColors.primary,
+        color: widget.isReverseColor ? Colors.transparent : widget.color,
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
           splashColor: AppColors.white.withOpacity(0.1),
